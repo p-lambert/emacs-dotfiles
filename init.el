@@ -3,4 +3,8 @@
 (require 'init-packages)
 (require 'init-general)
 (require 'init-ui)
+
+;; package-specific
+(require 'init-helm)
+
 (require 'init-keybindings)
