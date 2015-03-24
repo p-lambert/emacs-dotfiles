@@ -10,6 +10,7 @@
     flatland-theme
     magit
     projectile
+    helm-projectile
     )
   "A list of packages to be installed at application launch.")
 
