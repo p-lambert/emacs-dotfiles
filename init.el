@@ -6,5 +6,6 @@
 
 ;; package-specific
 (require 'init-helm)
+(require 'init-magit)
 
 (require 'init-keybindings)
