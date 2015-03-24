@@ -16,4 +16,7 @@
 ;; fonts
 (set-default-font "Inconsolata 18")
 
+;; theme
+(load-theme 'flatland t)
+
 (provide 'init-ui)
