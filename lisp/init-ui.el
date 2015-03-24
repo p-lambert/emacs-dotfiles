@@ -18,7 +18,7 @@
 (add-hook 'prog-mode-hook 'linum-mode)
 
 ;; fonts
-(set-default-font "Inconsolata 18")
+(set-default-font "Inconsolata 16")
 
 ;; theme
 (load-theme 'flatland t)
