@@ -8,5 +8,6 @@
 (require 'init-helm)
 (require 'init-magit)
 (require 'init-projectile)
+(require 'init-ruby)
 
 (require 'init-keybindings)
