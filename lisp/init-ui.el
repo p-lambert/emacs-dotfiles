@@ -1,11 +1,15 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
-(setq inhibit-splash-screen t)
-(setq inhibit-startup-message t)
-
-;; disable anoying beep
-(setq ring-bell-function 'ignore)
+(setq
+ ;; better startup
+ inhibit-splash-screen t
+ inhibit-startup-message t
+ ;; show column number at bottom bar
+ column-number-mode t
+ ;; disable anoying beep
+ ring-bell-function 'ignore
+ )
 
 ;; enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
