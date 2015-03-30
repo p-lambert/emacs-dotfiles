@@ -1,4 +1,5 @@
 (require 'projectile)
+(require 'helm-projectile)
 
 (global-set-key (kbd "C-x f") 'helm-projectile)
 
