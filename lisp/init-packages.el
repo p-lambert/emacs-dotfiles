@@ -11,6 +11,7 @@
     magit
     projectile
     helm-projectile
+    rbenv
     rspec-mode
     )
   "A list of packages to be installed at application launch.")
