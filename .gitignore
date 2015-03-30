@@ -12,3 +12,6 @@ projectile-bookmarks.eld
 
 # Misc
 auto-save-list/
+
+# Eshell
+eshell/
