@@ -3,6 +3,7 @@
 (require 'init-packages)
 (require 'init-ui)
 (require 'init-general)
+(require 'init-edit-defuns)
 
 ;; package-specific
 (require 'init-helm)
