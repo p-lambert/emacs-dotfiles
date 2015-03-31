@@ -9,6 +9,8 @@
  column-number-mode t
  ;; disable anoying beep
  ring-bell-function 'ignore
+ ;; improve rendering performance
+ redisplay-dont-pause t
  )
 
 ;; enable y/n answers
