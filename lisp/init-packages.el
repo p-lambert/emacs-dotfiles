@@ -7,12 +7,12 @@
 (defvar my-packages
   '(
     helm
-    flatland-theme
     magit
     projectile
     helm-projectile
     rbenv
     rspec-mode
+    ujelly-theme
     )
   "A list of packages to be installed at application launch.")
 

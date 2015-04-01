@@ -23,6 +23,6 @@
 (set-default-font "Droid Sans Mono for Powerline 14")
 
 ;; theme
-(load-theme 'flatland t)
+(load-theme 'ujelly t)
 
 (provide 'init-ui)
