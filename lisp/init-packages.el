@@ -13,6 +13,7 @@
     rbenv
     rspec-mode
     ujelly-theme
+    yaml-mode
     )
   "A list of packages to be installed at application launch.")
 
