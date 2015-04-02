@@ -4,6 +4,7 @@
 (require 'init-ui)
 (require 'init-general)
 (require 'init-edit-defuns)
+(require 'init-windows-defuns)
 
 ;; package-specific
 (require 'init-helm)
