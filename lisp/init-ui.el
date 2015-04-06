@@ -25,4 +25,25 @@
 ;; theme
 (load-theme 'ujelly t)
 
+;; modeline
+(defun branch-name ()
+  (when vc-mode
+    (concat "\ue0a0 " (substring vc-mode 5))
+    ))
+
+(setq-default mode-line-format
+      (list
+       "[" mode-line-modified "]"
+       "  "
+       "%b"
+       "  |  "
+       'mode-name
+       "  |  "
+       '(:eval (projectile-project-name))
+       " "
+       '(:eval (branch-name))
+       "  |  "
+       "%p (%l,%c)"
+       ))
+
 (provide 'init-ui)

@@ -1,7 +1,6 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (require 'init-packages)
-(require 'init-ui)
 (require 'init-general)
 (require 'init-edit-defuns)
 (require 'init-windows-defuns)
@@ -13,4 +12,5 @@
 (require 'init-ruby)
 (require 'init-rbenv)
 
+(require 'init-ui)
 (require 'init-keybindings)
