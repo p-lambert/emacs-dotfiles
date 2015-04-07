@@ -23,6 +23,9 @@
 (setq rspec-use-rake-when-possible nil)
 (setq rspec-use-spring-when-possible nil)
 
+;; enable debugging tools (binding.pry or byebug)
+(add-hook 'after-init-hook 'inf-ruby-switch-setup)
+
 ;; vcr toggle
 (defun custom/vcr-toggle ()
   (interactive)
