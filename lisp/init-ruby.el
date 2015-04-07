@@ -23,4 +23,15 @@
 (setq rspec-use-rake-when-possible nil)
 (setq rspec-use-spring-when-possible nil)
 
+;; vcr toggle
+(defun custom/vcr-toggle ()
+  (interactive)
+  (if (getenv "VCR_OFF")
+      (progn
+        (setenv "VCR_OFF" nil)
+        (message "VCR is ON"))
+    (progn
+      (setenv "VCR_OFF" "true")
+      (message "VCR is OFF"))))
+
 (provide 'init-ruby)
