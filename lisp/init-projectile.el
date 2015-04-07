@@ -12,7 +12,4 @@
 (setq helm-projectile-sources-list '(helm-source-projectile-buffers-list
 				     helm-source-projectile-files-list))
 
-(setq projectile-mode-line
-      '(:eval (format " Proj[%s]" (projectile-project-name))))
-
 (provide 'init-projectile)
