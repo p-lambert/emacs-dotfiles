@@ -11,9 +11,10 @@
  make-backup-files nil
  auto-save-default nil
  backup-inhibited t
- ;; make indentation commands use space only
- indent-tabs-mode nil
-)
+ )
+
+;; make indentation commands use space only
+(setq-default indent-tabs-mode nil)
 
 ;; whitespace display
 (global-whitespace-mode)
