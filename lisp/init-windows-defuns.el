@@ -16,9 +16,9 @@
   "Put the buffer from the selected window in next window, and vice versa."
   (interactive)
   (let* ((this (selected-window))
-	 (other (next-window))
-	 (this-buffer (window-buffer this))
-	 (other-buffer (window-buffer other)))
+         (other (next-window))
+         (this-buffer (window-buffer this))
+         (other-buffer (window-buffer other)))
     (set-window-buffer other this-buffer)
     (set-window-buffer this other-buffer)))
 

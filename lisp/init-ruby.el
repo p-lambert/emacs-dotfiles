@@ -2,16 +2,16 @@
 
 ;; auto modes
 (dolist (fp '("\\.rb$"
-	      "\\.ru$"
+              "\\.ru$"
               "\\.rake"
-	      "\\.jbuilder$"
-	      "\\.gemspec$"
-	      "\\GuardFile$"
-	      "\\Rakefile$"
-	      "\\Vagrantfile$"
-	      "\\Gemfile$"
-	      "\\Godfile$"
-	      "\\.god$"))
+              "\\.jbuilder$"
+              "\\.gemspec$"
+              "\\GuardFile$"
+              "\\Rakefile$"
+              "\\Vagrantfile$"
+              "\\Gemfile$"
+              "\\Godfile$"
+              "\\.god$"))
   (add-to-list 'auto-mode-alist `(,fp . ruby-mode)))
 
 ;; do not add encoding comment automatically
