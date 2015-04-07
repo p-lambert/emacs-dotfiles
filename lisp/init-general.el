@@ -18,8 +18,17 @@
 
 ;; whitespace display
 (global-whitespace-mode)
+
 (setq whitespace-global-modes
       '(not magit-mode git-commit-mode))
-(setq whitespace-style '(face trailing tabs))
+
+(setq whitespace-style
+      '(
+        face
+        trailing
+        tabs
+        identation::space
+        lines-tail
+        ))
 
 (provide 'init-general)
