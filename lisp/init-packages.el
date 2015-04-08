@@ -15,6 +15,7 @@
     inf-ruby
     ujelly-theme
     yaml-mode
+    yasnippet
     )
   "A list of packages to be installed at application launch.")
 

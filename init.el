@@ -11,6 +11,7 @@
 (require 'init-projectile)
 (require 'init-ruby)
 (require 'init-rbenv)
+(require 'init-yas)
 
 (require 'init-ui)
 (require 'init-keybindings)
