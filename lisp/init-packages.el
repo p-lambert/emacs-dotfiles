@@ -12,6 +12,7 @@
     helm-projectile
     rbenv
     rspec-mode
+    rinari
     inf-ruby
     ujelly-theme
     yaml-mode

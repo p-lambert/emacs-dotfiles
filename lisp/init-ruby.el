@@ -1,4 +1,5 @@
 (require 'rspec-mode)
+(require 'rinari)
 
 ;; auto modes
 (dolist (fp '("\\.rb$"
