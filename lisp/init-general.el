@@ -31,4 +31,7 @@
         lines-tail
         ))
 
+;; automatic whitespace removal
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 (provide 'init-general)
