@@ -7,14 +7,14 @@
 (defvar my-packages
   '(
     helm
+    helm-projectile
+    inf-ruby
     magit
     projectile
-    helm-projectile
     rbenv
+    rinari
     rspec-mode
     rubocop
-    rinari
-    inf-ruby
     ujelly-theme
     yaml-mode
     yasnippet
