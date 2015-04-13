@@ -15,6 +15,7 @@
     rinari
     rspec-mode
     rubocop
+    smartparens
     ujelly-theme
     yaml-mode
     yasnippet

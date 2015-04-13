@@ -12,6 +12,7 @@
 (require 'init-ruby)
 (require 'init-rbenv)
 (require 'init-yas)
+(require 'init-smartparens)
 
 (require 'init-ui)
 (require 'init-keybindings)
