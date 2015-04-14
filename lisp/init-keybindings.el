@@ -15,4 +15,7 @@
 (global-set-key (kbd "C-x 3") 'custom/hsplit-last-buffer)
 (global-set-key (kbd "C-c -") 'custom/swap-buffers-in-windows)
 
+;; misc
+(global-set-key (kbd "C-c d") 'custom/duplicate-current-line-or-region)
+
 (provide 'init-keybindings)

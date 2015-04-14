@@ -11,4 +11,25 @@
       (back-to-indentation)
     (move-beginning-of-line nil)))
 
+(defun custom/duplicate-current-line-or-region (arg)
+  "Duplicates the current line or those covered by region ARG times."
+  (interactive "p")
+  (let (beg end exit-point)
+    (if (and mark-active (> (point) (mark)))
+        (exchange-point-and-mark)))
+    (setq beg (line-beginning-position))
+    (if mark-active
+        (exchange-point-and-mark))
+    (setq end (line-end-position))
+    (setq exit-point end)
+    (let ((region (buffer-substring-no-properties beg end)))
+      (dotimes (_ arg)
+        (goto-char end)
+        (newline)
+        (insert region)
+        (setq end (point)))
+      (goto-char exit-point)
+      (next-line)
+      (back-to-indentation)))
+
 (provide 'init-edit-defuns)
