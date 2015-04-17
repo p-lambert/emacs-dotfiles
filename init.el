@@ -6,6 +6,7 @@
 (require 'init-windows-defuns)
 
 ;; package-specific
+(require 'init-ace-jump)
 (require 'init-helm)
 (require 'init-magit)
 (require 'init-projectile)

@@ -6,6 +6,7 @@
 
 (defvar my-packages
   '(
+    ace-jump-mode
     helm
     helm-projectile
     inf-ruby
