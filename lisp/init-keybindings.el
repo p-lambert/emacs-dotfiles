@@ -5,6 +5,7 @@
 (global-set-key (kbd "C-a") 'custom/smart-move-beginning-of-line)
 (global-set-key (kbd "C-S-n") 'end-of-buffer)
 (global-set-key (kbd "C-S-p") 'beginning-of-buffer)
+(global-set-key (kbd "C-c C-k") 'custom/copy-line)
 
 ;; window and buffer manipulation
 (global-set-key (kbd "M-o") 'other-window)

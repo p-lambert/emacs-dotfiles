@@ -28,6 +28,13 @@
    (next-line)
    (back-to-indentation)))
 
+(defun custom/copy-line ()
+  "Copy current line or those covered by a marked region"
+  (interactive)
+  (kill-ring-save
+   (car (custom/get-region-positions))
+   (cdr (custom/get-region-positions))))
+
 (defun custom/get-region-positions ()
   "Returns a dotted-pair (BEG . END) with regions's beginning and ending positions."
   (interactive)
