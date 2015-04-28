@@ -38,13 +38,14 @@
 (defun custom/get-region-positions ()
   "Returns a dotted-pair (BEG . END) with regions's beginning and ending positions."
   (interactive)
-  (let (beg end)
-    (if (and mark-active (> (point) (mark)))
-        (exchange-point-and-mark))
-    (setq beg (line-beginning-position))
-    (if mark-active
-        (exchange-point-and-mark))
-    (setq end (line-end-position))
-    (cons beg end)))
+  (save-excursion
+    (let (beg end)
+      (if (and mark-active (> (point) (mark)))
+          (exchange-point-and-mark))
+      (setq beg (line-beginning-position))
+      (if mark-active
+          (exchange-point-and-mark))
+      (setq end (line-end-position))
+      (cons beg end))))
 
 (provide 'init-edit-defuns)
