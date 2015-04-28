@@ -12,6 +12,7 @@
 (require 'init-projectile)
 (require 'init-ruby)
 (require 'init-rbenv)
+(require 'init-rinari)
 (require 'init-yas)
 (require 'init-smartparens)
 
