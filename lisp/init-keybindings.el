@@ -6,6 +6,8 @@
 (global-set-key (kbd "C-S-n") 'end-of-buffer)
 (global-set-key (kbd "C-S-p") 'beginning-of-buffer)
 (global-set-key (kbd "C-c C-k") 'custom/copy-line)
+(global-set-key (kbd "C-c d") 'custom/duplicate-current-line-or-region)
+(global-set-key (kbd "C-M-<backspace>") 'custom/kill-line)
 
 ;; window and buffer manipulation
 (global-set-key (kbd "M-o") 'other-window)
@@ -19,7 +21,6 @@
 (global-set-key (kbd "C-c -") 'custom/swap-buffers-in-windows)
 
 ;; misc
-(global-set-key (kbd "C-c d") 'custom/duplicate-current-line-or-region)
 (global-set-key (kbd "C-c e") 'eshell)
 
 (provide 'init-keybindings)
