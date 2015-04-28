@@ -20,5 +20,6 @@
 
 ;; misc
 (global-set-key (kbd "C-c d") 'custom/duplicate-current-line-or-region)
+(global-set-key (kbd "C-c e") 'eshell)
 
 (provide 'init-keybindings)
