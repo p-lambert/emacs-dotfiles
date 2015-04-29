@@ -2,8 +2,8 @@
 
 (defun custom/dired-open ()
   (interactive)
-  (let ((file (dired-get-filename)))
-    (if (file-directory-p file)
+  (let ((file (ignore-errors (dired-get-filename))))
+    (if (or (not file) (file-directory-p file))
         (dired-find-alternate-file)
       (dired-find-file))))
 
