@@ -8,6 +8,7 @@
       (dired-find-file))))
 
 (define-key dired-mode-map (kbd "RET") 'custom/dired-open)
+(define-key dired-mode-map (kbd "C-l") 'dired-up-directory)
 
 ;; disable buffer trail left by directory navigation
 (put 'dired-find-alternate-file 'disabled nil)
