@@ -23,7 +23,9 @@
 (set-default-font "Droid Sans Mono for Powerline 14")
 
 ;; theme
-(load-theme 'ujelly t)
+(add-to-list 'custom-theme-load-path
+             (concat user-emacs-directory "themes"))
+(load-theme 'jellyburn t)
 
 ;; modeline
 (defun branch-name ()
