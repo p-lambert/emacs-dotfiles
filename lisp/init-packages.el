@@ -11,6 +11,7 @@
     helm-projectile
     inf-ruby
     magit
+    multiple-cursors
     projectile
     rbenv
     rinari

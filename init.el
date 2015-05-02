@@ -10,6 +10,7 @@
 (require 'init-dired)
 (require 'init-helm)
 (require 'init-magit)
+(require 'init-multiple-cursors)
 (require 'init-projectile)
 (require 'init-ruby)
 (require 'init-rbenv)
