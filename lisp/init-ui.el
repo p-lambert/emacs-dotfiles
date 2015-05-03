@@ -20,7 +20,7 @@
 (add-hook 'prog-mode-hook 'linum-mode)
 
 ;; fonts
-(set-default-font "Droid Sans Mono for Powerline 14")
+(set-default-font "Inconsolata-dz for Powerline 14")
 
 ;; theme
 (add-to-list 'custom-theme-load-path
