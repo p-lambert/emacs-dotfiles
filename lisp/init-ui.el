@@ -32,9 +32,7 @@
 
 ;; modeline
 (defun branch-name ()
-  (when vc-mode
-    (concat "\ue0a0 " (substring vc-mode 5))
-    ))
+  (when vc-mode (concat "\ue0a0 " (substring vc-mode 5))))
 
 (setq-default mode-line-format
       (list
