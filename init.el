@@ -4,6 +4,7 @@
 (require 'init-general)
 (require 'init-edit-defuns)
 (require 'init-windows-defuns)
+(require 'init-misc-defuns)
 
 ;; package-specific
 (require 'init-ace-jump)
