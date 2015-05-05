@@ -48,4 +48,7 @@
        "%p (%l,%c)"
        ))
 
+;; default window size
+(when window-system (set-frame-size (selected-frame) 140 35))
+
 (provide 'init-ui)
