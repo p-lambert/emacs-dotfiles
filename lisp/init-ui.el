@@ -27,6 +27,9 @@
              (concat user-emacs-directory "themes"))
 (load-theme 'jellyburn t)
 
+;; linum
+(setq linum-format "%3d")
+
 ;; modeline
 (defun branch-name ()
   (when vc-mode
