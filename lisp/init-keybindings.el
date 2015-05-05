@@ -8,6 +8,7 @@
 (global-set-key (kbd "C-c C-k") 'custom/copy-line)
 (global-set-key (kbd "C-c d") 'custom/duplicate-current-line-or-region)
 (global-set-key (kbd "C-M-<backspace>") 'custom/kill-line)
+(global-set-key (kbd "C-c j") 'join-line)
 
 ;; window and buffer manipulation
 (global-set-key (kbd "M-o") 'other-window)
