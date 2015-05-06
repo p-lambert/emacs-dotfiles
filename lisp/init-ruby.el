@@ -77,10 +77,12 @@
     class))
 
 (defun custom/run-mutant-from-dired ()
-  "Run mutant over a file under mark."
+  "Run mutant over all marked files."
   (interactive)
-  (let ((class-name (custom/class-from-file-name (dired-get-filename))))
-    (rinari-rake (concat "mutant:check[" class-name "]"))))
+  (let* ((file-names (dired-get-marked-files))
+         (class-names (mapcar 'custom/class-from-file-name file-names))
+         (joined-names (mapconcat 'identity class-names " ")))
+    (compile (concat "rake 'mutant:check[" joined-names "]'"))))
 
 (define-key dired-mode-map (kbd "C-c t") 'custom/run-mutant-from-dired)
 
