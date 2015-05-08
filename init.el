@@ -9,6 +9,7 @@
 ;; package-specific
 (require 'init-ace-jump)
 (require 'init-dired)
+(require 'init-eshell)
 (require 'init-helm)
 (require 'init-magit)
 (require 'init-multiple-cursors)
