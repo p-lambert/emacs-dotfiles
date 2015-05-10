@@ -5,6 +5,7 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 (setq helm-quick-update t
-      helm-buffers-fuzzy-matching t)
+      helm-buffers-fuzzy-matching t
+      helm-buffer-max-length 25)
 
 (provide 'init-helm)
