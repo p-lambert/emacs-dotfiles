@@ -63,27 +63,4 @@
       (setenv "VCR_OFF" "true")
       (message "VCR is OFF"))))
 
-(defun custom/class-from-file-name (file-name)
-  "Guess the name of the class given a filename."
-  (let* ((name (file-relative-name file-name (projectile-project-root)))
-         (class (capitalize name))
-         (rules '(("\\.rb"        . "")
-                  ("app\\/.+?\\/" . "")
-                  ("lib\\/"       . "")
-                  ("/"            . "::")
-                  ("_"            . ""))))
-    (dolist (rule rules)
-      (setq class (replace-regexp-in-string (car rule) (cdr rule) class nil t)))
-    class))
-
-(defun custom/run-mutant-from-dired ()
-  "Run mutant over all marked files."
-  (interactive)
-  (let* ((file-names (dired-get-marked-files))
-         (class-names (mapcar 'custom/class-from-file-name file-names))
-         (joined-names (mapconcat 'identity class-names " ")))
-    (compile (concat "rake 'mutant:check[" joined-names "]'"))))
-
-(define-key dired-mode-map (kbd "C-c t") 'custom/run-mutant-from-dired)
-
 (provide 'init-ruby)
