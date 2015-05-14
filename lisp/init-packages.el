@@ -11,6 +11,7 @@
     helm-projectile
     inf-ruby
     magit
+    markdown-mode
     multiple-cursors
     projectile
     rbenv
