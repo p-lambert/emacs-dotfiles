@@ -41,9 +41,7 @@
   (let*
    ((beg (car (custom/get-region-positions)))
     (end (cdr (custom/get-region-positions)))
-    (number-of-lines (count-lines beg end)))
-   (if (= number-of-lines 0)
-       (setq number-of-lines 1))
+    (number-of-lines (count-lines beg (1+ end))))
    (if (and mark-active (> (point) (mark)))
        (setq number-of-lines (* -1 number-of-lines)))
    (kill-whole-line number-of-lines)))
