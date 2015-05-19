@@ -48,6 +48,14 @@
        (setq number-of-lines (* -1 number-of-lines)))
    (kill-whole-line number-of-lines)))
 
+(defun custom/toggle-line-comment ()
+  "Comment or uncomment current line or the ones covered by a marked region."
+  (interactive)
+  (let
+   ((beg (car (custom/get-region-positions)))
+    (end (cdr (custom/get-region-positions))))
+   (comment-or-uncomment-region beg end)))
+
 (defun custom/get-region-positions ()
   "Returns a dotted-pair (BEG . END) with regions's beginning and ending positions."
   (interactive)
