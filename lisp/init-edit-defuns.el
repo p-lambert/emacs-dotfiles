@@ -46,6 +46,18 @@
        (setq number-of-lines (* -1 number-of-lines)))
    (kill-whole-line number-of-lines)))
 
+(defun custom/join-line ()
+  "Join current line with the previous one or all covered by a marked region."
+  (interactive)
+  (let*
+   ((beg (car (custom/get-region-positions)))
+    (end (cdr (custom/get-region-positions)))
+    (number-of-lines (1- (count-lines beg (1+ end)))))
+   (when (= number-of-lines 0) (setq number-of-lines 1))
+   (goto-char end)
+   (dotimes (_ number-of-lines)
+     (join-line))))
+
 (defun custom/toggle-line-comment ()
   "Comment or uncomment current line or the ones covered by a marked region."
   (interactive)
