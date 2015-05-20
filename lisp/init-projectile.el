@@ -17,6 +17,7 @@
   (interactive)
   (let ((default-directory (projectile-project-root))
         (shell-title (concat "*eshell [" (projectile-project-name) "]*")))
+    (other-window 1)
     (switch-to-buffer (get-buffer-create shell-title))
     (eshell-mode)))
 
