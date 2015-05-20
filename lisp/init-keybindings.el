@@ -23,7 +23,7 @@
 (global-set-key (kbd "C-c -") 'custom/swap-buffers-in-windows)
 
 ;; misc
-(global-set-key (kbd "C-c e") 'eshell)
+(global-set-key (kbd "C-c e") 'custom/projectile-eshell)
 (global-set-key (kbd "C-c s") 'custom/open-or-create-scratch-buffer)
 (global-set-key (kbd "C-z") 'ignore)
 

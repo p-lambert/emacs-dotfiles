@@ -12,4 +12,12 @@
 (setq helm-projectile-sources-list '(helm-source-projectile-buffers-list
                                      helm-source-projectile-files-list))
 
+(defun custom/projectile-eshell ()
+  "Open an eshell buffer at project's root directory."
+  (interactive)
+  (let ((default-directory (projectile-project-root))
+        (shell-title (concat "*eshell [" (projectile-project-name) "]*")))
+    (switch-to-buffer (get-buffer-create shell-title))
+    (eshell-mode)))
+
 (provide 'init-projectile)
