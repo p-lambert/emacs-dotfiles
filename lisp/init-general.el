@@ -13,6 +13,10 @@
  backup-inhibited t
  )
 
+;; enable protected commands
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
 ;; make indentation commands use space only
 (setq-default indent-tabs-mode nil)
 
