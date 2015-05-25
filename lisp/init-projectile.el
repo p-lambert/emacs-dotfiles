@@ -9,8 +9,11 @@
 
 (setq projectile-switch-project-action 'projectile-dired)
 
-(setq helm-projectile-sources-list '(helm-source-projectile-buffers-list
-                                     helm-source-projectile-files-list))
+(setq helm-projectile-sources-list
+      '(helm-source-projectile-buffers-list helm-source-projectile-files-list))
+
+;; ignore .gems directory
+(add-to-list 'projectile-globally-ignored-directories ".gems")
 
 (defun custom/projectile-eshell ()
   "Open an eshell buffer at project's root directory."
