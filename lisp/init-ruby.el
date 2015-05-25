@@ -21,6 +21,7 @@
 
 ;; rspec-mode configuration
 (add-hook 'ruby-mode-hook 'rspec-mode)
+(add-hook 'dired-mode-hook 'rspec-dired-mode)
 
 (setq rspec-use-rake-when-possible nil)
 (setq rspec-use-spring-when-possible nil)
