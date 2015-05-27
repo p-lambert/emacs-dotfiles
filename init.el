@@ -8,7 +8,6 @@
 (require 'init-misc-defuns)
 
 ;; package-specific
-(require 'init-ace-jump)
 (require 'init-dired)
 (require 'init-eshell)
 (require 'init-helm)
