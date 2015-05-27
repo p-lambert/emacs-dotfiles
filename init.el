@@ -12,7 +12,7 @@
 (require 'init-dired)
 (require 'init-eshell)
 (require 'init-helm)
-(require 'init-magit)
+(require 'init-git)
 (require 'init-multiple-cursors)
 (require 'init-mutant)
 (require 'init-projectile)
