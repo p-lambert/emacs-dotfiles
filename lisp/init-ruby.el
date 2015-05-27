@@ -60,8 +60,7 @@
       (progn
         (setenv "VCR_OFF" nil)
         (message "VCR is ON"))
-    (progn
-      (setenv "VCR_OFF" "true")
-      (message "VCR is OFF"))))
+    (setenv "VCR_OFF" "true")
+    (message "VCR is OFF")))
 
 (provide 'init-ruby)
