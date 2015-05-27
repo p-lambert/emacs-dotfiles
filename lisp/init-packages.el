@@ -7,6 +7,7 @@
 (defvar my-packages
   '(
     ace-jump-mode
+    git-timemachine
     helm
     helm-projectile
     inf-ruby
