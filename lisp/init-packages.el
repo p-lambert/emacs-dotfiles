@@ -7,6 +7,8 @@
 (defvar my-packages
   '(
     ag
+    dash
+    f
     git-timemachine
     helm
     helm-projectile
