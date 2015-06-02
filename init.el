@@ -14,6 +14,7 @@
 (require 'init-helm)
 (require 'init-multiple-cursors)
 (require 'init-mutant)
+(require 'init-org)
 (require 'init-projectile)
 (require 'init-rbenv)
 (require 'init-rinari)
