@@ -6,6 +6,7 @@
 
 (setq helm-quick-update t
       helm-buffers-fuzzy-matching t
-      helm-buffer-max-length 25)
+      helm-buffer-max-length 25
+      helm-buffer-details-flag nil)
 
 (provide 'init-helm)
