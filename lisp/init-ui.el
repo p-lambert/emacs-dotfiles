@@ -23,8 +23,8 @@
 (set-default-font "Inconsolata-dz for Powerline 14")
 
 ;; theme
-(add-to-list 'custom-theme-load-path
-             (concat user-emacs-directory "themes"))
+(add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes"))
+;; available options: flatui | jellyburn
 (load-theme 'jellyburn t)
 
 ;; linum

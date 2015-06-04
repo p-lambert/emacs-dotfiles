@@ -25,6 +25,8 @@
     smartparens
     yaml-mode
     yasnippet
+    ;; themes
+    flatui-theme
     )
   "A list of packages to be installed at application launch.")
 
