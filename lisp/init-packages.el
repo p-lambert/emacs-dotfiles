@@ -7,6 +7,8 @@
 (defvar my-packages
   '(
     ag
+    cider
+    clojure-mode
     dash
     f
     git-timemachine
