@@ -1,1 +1,2 @@
 alias ls ls -la $*
+alias bs custom/bash-command $*
