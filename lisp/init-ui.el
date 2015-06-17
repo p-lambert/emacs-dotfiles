@@ -32,7 +32,8 @@
 
 ;; modeline
 (defun branch-name ()
-  (when vc-mode (concat "\ue0a0 " (substring vc-mode 5))))
+  ;; for powerline patched fonts, the unicode char \ue0a0 is cooler!
+  (when vc-mode (concat "@ " (substring vc-mode 5))))
 
 (setq-default mode-line-format
       (list
