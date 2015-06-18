@@ -79,4 +79,10 @@
       (setq end (line-end-position))
       (cons beg end))))
 
+(defun custom/yank-and-indent ()
+  "Indent and then indent newly formed region."
+  (interactive)
+  (yank)
+  (call-interactively 'indent-region))
+
 (provide 'init-edit-defuns)

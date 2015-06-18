@@ -10,6 +10,7 @@
 (global-set-key (kbd "C-M-<backspace>") 'custom/kill-line)
 (global-set-key (kbd "C-c j") 'custom/join-line)
 (global-set-key (kbd "C-c /") 'custom/toggle-line-comment)
+(global-set-key (kbd "C-y") 'custom/yank-and-indent)
 
 ;; window and buffer manipulation
 (global-set-key (kbd "M-o") 'other-window)
