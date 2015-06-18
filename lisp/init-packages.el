@@ -13,6 +13,7 @@
     f
     git-timemachine
     helm
+    helm-bundle-show
     helm-projectile
     inf-ruby
     magit
