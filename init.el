@@ -20,6 +20,7 @@
 (require 'init-rinari)
 (require 'init-ruby)
 (require 'init-smartparens)
+(require 'init-web)
 (require 'init-yas)
 
 (require 'init-keybindings)

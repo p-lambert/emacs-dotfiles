@@ -26,6 +26,7 @@
     rspec-mode
     rubocop
     smartparens
+    web-mode
     yaml-mode
     yasnippet
     ;; themes
