@@ -26,6 +26,9 @@
 (setq rspec-use-rake-when-possible nil)
 (setq rspec-use-spring-when-possible nil)
 
+;; ignore only app dir when performing the spec lookup
+(setq rspec-holder-dirs '("app"))
+
 ;; enable debugging tools (binding.pry or byebug)
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
