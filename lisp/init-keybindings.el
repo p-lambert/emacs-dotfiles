@@ -1,3 +1,18 @@
+(require 'bind-key)
+
+(defvar custom/strong-bindings
+  '("M-n" "M-p")
+  "List of global keybindings to be ensured on every mode.")
+
+(defun custom/ensure-bindings-precedence (keys)
+  "Ensure the precedence of all global KEYS provided."
+  (let ((bindings-alist (mapcar 'custom/binding-cons-cell keys)))
+    (dolist (bnd bindings-alist)
+      (bind-key* (car bnd) (cdr bnd)))))
+
+(defun custom/binding-cons-cell (key)
+  (cons key (lookup-key (current-global-map) (kbd key))))
+
 ;; movement and editing
 (global-set-key (kbd "M-n") (lambda () (interactive) (next-line 5)))
 (global-set-key (kbd "M-p") (lambda () (interactive) (previous-line 5)))
@@ -29,5 +44,8 @@
 (global-set-key (kbd "C-c e") 'custom/projectile-eshell)
 (global-set-key (kbd "C-c s") 'custom/open-or-create-scratch-buffer)
 (global-set-key (kbd "C-z") 'ignore)
+
+;; ensure precedence of selected keybindings
+(custom/ensure-bindings-precedence custom/strong-bindings)
 
 (provide 'init-keybindings)
