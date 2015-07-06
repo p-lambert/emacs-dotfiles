@@ -9,6 +9,7 @@ elpa/
 
 # Projectile
 projectile-bookmarks.eld
+projectile.cache
 
 # Misc
 auto-save-list/
