@@ -11,6 +11,7 @@
 (require 'init-dired)
 (require 'init-eshell)
 (require 'init-git)
+(require 'init-guide-key)
 (require 'init-helm)
 (require 'init-multiple-cursors)
 (require 'init-mutant)

@@ -13,6 +13,7 @@
     dash
     f
     git-timemachine
+    guide-key
     helm
     helm-bundle-show
     helm-projectile
