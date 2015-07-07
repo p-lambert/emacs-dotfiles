@@ -7,6 +7,7 @@
 (defvar my-packages
   '(
     ag
+    bind-key
     cider
     clojure-mode
     dash
