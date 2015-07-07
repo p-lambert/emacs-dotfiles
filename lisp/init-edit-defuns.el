@@ -14,62 +14,52 @@
 (defun custom/duplicate-current-line-or-region (arg)
   "Duplicates the current line or those covered by region ARG times."
   (interactive "p")
-  (let*
-   ((beg (car (custom/get-region-positions)))
-    (end (cdr (custom/get-region-positions)))
-    (exit-point end)
-    (region (buffer-substring-no-properties beg end)))
-   (dotimes (_ arg)
-     (goto-char end)
-     (newline)
-     (insert region)
-     (setq end (point)))
-   (goto-char exit-point)
-   (next-line)
-   (back-to-indentation)))
+  (custom/with-region-info
+   (let ((exit-point end)
+         (region (buffer-substring-no-properties beg end)))
+     (dotimes (_ arg)
+       (goto-char end)
+       (newline)
+       (insert region)
+       (setq end (point)))
+     (goto-char exit-point)
+     (next-line)
+     (back-to-indentation))))
 
 (defun custom/copy-line ()
   "Copy current line or those covered by a marked region"
   (interactive)
-  (kill-ring-save
-   (car (custom/get-region-positions))
-   (cdr (custom/get-region-positions))))
+  (custom/with-region-info (kill-ring-save beg end)))
 
 (defun custom/kill-line ()
   "Kill current line or the ones covered by a marked region."
   (interactive)
-  (let*
-   ((beg (car (custom/get-region-positions)))
-    (end (cdr (custom/get-region-positions)))
-    (number-of-lines (count-lines beg (1+ end))))
-   (if (and mark-active (> (point) (mark)))
-       (setq number-of-lines (* -1 number-of-lines)))
-   (kill-whole-line number-of-lines)))
+  (custom/with-region-info
+   (let ((number-of-lines (count-lines beg (1+ end))))
+     (if (and mark-active (> (point) (mark)))
+         (setq number-of-lines (* -1 number-of-lines)))
+     (kill-whole-line number-of-lines))))
 
 (defun custom/join-line ()
   "Join current line with the previous one or all covered by a marked region."
   (interactive)
-  (let*
-   ((beg (car (custom/get-region-positions)))
-    (end (cdr (custom/get-region-positions)))
-    (number-of-lines (1- (count-lines beg (1+ end)))))
-   (when (= number-of-lines 0) (setq number-of-lines 1))
-   (goto-char end)
-   (dotimes (_ number-of-lines)
-     (join-line))))
+  (custom/with-region-info
+   (let ((number-of-lines (1- (count-lines beg (1+ end)))))
+     (when (= number-of-lines 0) (setq number-of-lines 1))
+     (goto-char end)
+     (dotimes (_ number-of-lines)
+       (join-line)))))
 
 (defun custom/toggle-line-comment ()
   "Comment or uncomment current line or the ones covered by a marked region."
   (interactive)
-  (let
-   ((beg (car (custom/get-region-positions)))
-    (end (cdr (custom/get-region-positions))))
+  (custom/with-region-info
    (comment-or-uncomment-region beg end)))
 
-(defun custom/get-region-positions ()
-  "Returns a dotted-pair (BEG . END) with regions's beginning and ending positions."
-  (interactive)
-  (save-excursion
+(defmacro custom/with-region-info (&rest body)
+  "Evaluates BODY provinding BEG and END bindings, which represents
+regions's beginning and ending positions."
+  `(save-excursion
     (let (beg end)
       (if (and mark-active (> (point) (mark)))
           (exchange-point-and-mark))
@@ -77,7 +67,7 @@
       (if mark-active
           (exchange-point-and-mark))
       (setq end (line-end-position))
-      (cons beg end))))
+      ,@body)))
 
 (defun custom/yank-and-indent ()
   "Indent and then indent newly formed region."
