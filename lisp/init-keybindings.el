@@ -1,7 +1,7 @@
 (require 'bind-key)
 
 (defvar custom/strong-bindings
-  '("M-n" "M-p")
+  '("M-n" "M-p" "C-M-&")
   "List of global keybindings to be ensured on every mode.")
 
 (defun custom/ensure-bindings-precedence (keys)
@@ -45,6 +45,9 @@
 (global-set-key (kbd "C-c s") 'custom/open-or-create-scratch-buffer)
 (global-set-key (kbd "C-z") 'ignore)
 
+
+;; set a custom keybinding for toggling binding
+(global-set-key (kbd "C-M-&") 'override-global-mode)
 ;; ensure precedence of selected keybindings
 (custom/ensure-bindings-precedence custom/strong-bindings)
 
