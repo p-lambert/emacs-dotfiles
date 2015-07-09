@@ -66,4 +66,6 @@
     (setenv "VCR_OFF" "true")
     (message "VCR is OFF")))
 
+(global-set-key (kbd "C-M-v") 'custom/vcr-toggle)
+
 (provide 'init-ruby)
