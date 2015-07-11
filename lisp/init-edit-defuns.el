@@ -35,20 +35,17 @@
   "Kill current line or the ones covered by a marked region."
   (interactive)
   (custom/with-region-info
-   (let ((number-of-lines (count-lines beg (1+ end))))
-     (if (and mark-active (> (point) (mark)))
-         (setq number-of-lines (* -1 number-of-lines)))
-     (kill-whole-line number-of-lines))))
+   (if (and mark-active (> (point) (mark)))
+       (setq num-lines (* -1 num-lines)))
+     (kill-whole-line num-lines)))
 
 (defun custom/join-line ()
   "Join current line with the previous one or all covered by a marked region."
   (interactive)
   (custom/with-region-info
-   (let ((number-of-lines (1- (count-lines beg (1+ end)))))
-     (when (= number-of-lines 0) (setq number-of-lines 1))
-     (goto-char end)
-     (dotimes (_ number-of-lines)
-       (join-line)))))
+   (goto-char end)
+   (dotimes (_ (max 1 (1- num-lines)))
+     (join-line))))
 
 (defun custom/toggle-line-comment ()
   "Comment or uncomment current line or the ones covered by a marked region."
