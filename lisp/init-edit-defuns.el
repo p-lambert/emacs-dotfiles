@@ -57,16 +57,17 @@
    (comment-or-uncomment-region beg end)))
 
 (defmacro custom/with-region-info (&rest body)
-  "Evaluates BODY provinding BEG and END bindings, which represents
-regions's beginning and ending positions."
+  "Evaluates BODY provinding BEG, END and NUM-LINES bindings, which represents
+regions's beginning, ending and extension in lines."
   `(save-excursion
-    (let (beg end)
+    (let (beg end num-lines)
       (if (and mark-active (> (point) (mark)))
           (exchange-point-and-mark))
       (setq beg (line-beginning-position))
       (if mark-active
           (exchange-point-and-mark))
       (setq end (line-end-position))
+      (setq num-lines (max 1 (count-lines beg end)))
       ,@body)))
 
 (defun custom/yank-and-indent ()
