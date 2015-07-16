@@ -8,7 +8,8 @@
 (defun custom/hsplit-last-buffer ()
   "Horizontally split window showing last buffer."
   (interactive)
-  (split-window-horizontally)
+  (when (= (length (window-list)) 1)
+    (split-window-horizontally))
   (other-window 1 nil)
   (switch-to-next-buffer))
 
