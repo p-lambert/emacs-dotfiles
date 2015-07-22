@@ -18,7 +18,8 @@
 
 (set-face-attribute 'sp-pair-overlay-face nil :inherit nil)
 
-(add-hook 'lisp-mode-hook 'show-smartparens-mode)
-(add-hook 'emacs-lisp-mode-hook 'show-smartparens-mode)
+;; enable smartparens display for certain modes
+(dolist (mode '(lisp-mode-hook emacs-lisp-mode-hook clojure-mode-hook))
+  (add-hook mode 'show-smartparens-mode))
 
 (provide 'init-smartparens)
