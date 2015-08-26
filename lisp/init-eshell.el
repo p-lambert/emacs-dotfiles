@@ -9,4 +9,13 @@
                   (mapconcat 'identity (car cmd) " ")))
   (eshell-send-input))
 
+(defun custom/create-eshell-instance (title cmd)
+  "Create an eshell buffer named TITLE and then run CMD in it."
+  (switch-to-buffer (generate-new-buffer title))
+  (eshell-mode)
+  (when cmd
+    (goto-char (point-max))
+    (insert cmd)
+    (eshell-send-input)))
+
 (provide 'init-eshell)
