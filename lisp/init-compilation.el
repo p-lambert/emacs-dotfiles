@@ -1,5 +1,6 @@
 (require 'f)
 (require 'term)
+(require 'cc-mode)
 
 (defun custom/compile-and-run ()
   "Compile and run current file."
@@ -25,5 +26,7 @@
     (term-ansi-make-term buffer-name program)))
 
 (add-hook 'compilation-finish-functions 'custom/run-after-compile-hook)
+
+(define-key c-mode-base-map (kbd "C-c 0") 'custom/compile-and-run)
 
 (provide 'init-compilation)
