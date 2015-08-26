@@ -8,6 +8,7 @@
 (require 'init-windows-defuns)
 
 ;; package-specific
+(require 'init-compilation)
 (require 'init-dired)
 (require 'init-eshell)
 (require 'init-git)
