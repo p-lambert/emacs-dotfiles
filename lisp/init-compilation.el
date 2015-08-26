@@ -20,9 +20,11 @@
 
 (defun custom/run-program (program window)
   (let* ((program-name (f-filename program))
-         (buffer-name (generate-new-buffer-name (format "*%s*" program-name)))
-         (buffer (generate-new-buffer buffer-name)))
+         (buffer-name (format "*program %s*" program-name))
+         (buffer (get-buffer-create buffer-name)))
     (set-window-buffer window buffer)
+    (with-current-buffer buffer
+      (erase-buffer))
     (term-ansi-make-term buffer-name program)))
 
 (add-hook 'compilation-finish-functions 'custom/run-after-compile-hook)
