@@ -53,4 +53,8 @@
 ;; default window size
 (when window-system (set-frame-size (selected-frame) 140 35))
 
+;; force horizontal splits
+(setq split-height-threshold nil)
+(setq split-width-threshold 80)
+
 (provide 'init-ui)
