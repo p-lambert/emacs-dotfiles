@@ -2,13 +2,12 @@
 (require 'term)
 (require 'cc-mode)
 
-(defun custom/compile-and-run ()
-  "Compile and run current file."
-  (interactive)
+(defun custom/compile-and-run (compiler-cmd)
+  "Compile (through COMPILER-CMD) and run current file."
   (let* ((full-path (buffer-file-name))
          (file-name (f-filename full-path))
          (base-name (f-base full-path))
-         (cmd (format "gcc %s -o %s" file-name base-name)))
+         (cmd (format "%s %s -o %s" compiler-cmd file-name base-name)))
     (setenv "RUN_AFTER_COMPILE" (f-no-ext full-path))
     (compile cmd)))
 
@@ -29,6 +28,9 @@
 
 (add-hook 'compilation-finish-functions 'custom/run-after-compile-hook)
 
-(define-key c-mode-base-map (kbd "C-c 0") 'custom/compile-and-run)
+(define-key c-mode-base-map (kbd "C-c 0")
+  (lambda () (interactive) (custom/compile-and-run "gcc")))
+(define-key c++-mode-map (kbd "C-c 0")
+  (lambda () (interactive) (custom/compile-and-run "g++")))
 
 (provide 'init-compilation)
