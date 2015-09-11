@@ -1,4 +1,6 @@
 (require 'dired)
+(require 's)
+(require 'f)
 
 (defun custom/dired-open ()
   (interactive)
@@ -7,8 +9,21 @@
         (dired-find-alternate-file)
       (dired-find-file))))
 
+(defun custom/dired-create-file (name)
+  (interactive (list (read-string "File name: ")))
+  (let ((clean-name (s-trim name)))
+    (if (or (s-blank? clean-name)
+            (f-exists? clean-name))
+        (message "Invalid file name!")
+      (shell-command (format "touch %s" clean-name))
+      (revert-buffer)
+      (goto-char (point-min))
+      (search-forward clean-name)
+      (backward-word))))
+
 (define-key dired-mode-map (kbd "RET") 'custom/dired-open)
 (define-key dired-mode-map (kbd "C-l") 'dired-up-directory)
+(define-key dired-mode-map (kbd "c") 'custom/dired-create-file)
 
 ;; disable buffer trail left by directory navigation
 (put 'dired-find-alternate-file 'disabled nil)
