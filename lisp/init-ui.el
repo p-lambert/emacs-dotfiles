@@ -36,19 +36,19 @@
   (when vc-mode (concat "@ " (substring vc-mode 5))))
 
 (setq-default mode-line-format
-      (list
-       "[" mode-line-modified "]"
-       "  "
-       "%b"
-       "  |  "
-       'mode-name
-       "  |  "
-       '(:eval (projectile-project-name))
-       " "
-       '(:eval (branch-name))
-       "  |  "
-       "%p (%l,%c)"
-       ))
+              (list
+               "[" mode-line-modified "]"
+               "  "
+               "%b"
+               "  |  "
+               'mode-name
+               "  |  "
+               '(:eval (projectile-project-name))
+               " "
+               '(:eval (branch-name))
+               "  |  "
+               "%p (%l,%c)"
+               ))
 
 ;; default window size
 (when window-system (set-frame-size (selected-frame) 140 35))
