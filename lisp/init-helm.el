@@ -7,6 +7,8 @@
 (setq helm-quick-update t
       helm-buffers-fuzzy-matching t
       helm-buffer-max-length 25
-      helm-buffer-details-flag nil)
+      helm-buffer-details-flag nil
+      helm-display-header-line nil
+      helm-mode-line-string "")
 
 (provide 'init-helm)

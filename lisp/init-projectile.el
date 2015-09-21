@@ -26,4 +26,16 @@
     (other-window 1)
     (switch-to-buffer buffer)))
 
+;; overwrite original `projectile-completing-read` with cleaner helm buffer
+(defun projectile-completing-read (prompt choices &optional initial-input)
+  "Present a project tailored PROMPT with CHOICES."
+  (let ((prompt (projectile-prepend-project-name prompt)))
+    (helm-comp-read prompt choices
+                    :initial-input initial-input
+                    :candidates-in-buffer t
+                    :must-match 'confirm
+                    :buffer "*Project List*"
+                    :mode-line ""
+                    :name "Project List")))
+
 (provide 'init-projectile)
