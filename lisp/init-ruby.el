@@ -68,4 +68,8 @@
 
 (global-set-key (kbd "C-M-v") 'custom/vcr-toggle)
 
+;; rinari commands
+(global-set-key (kbd "C-c r c") 'rinari-console)
+(global-set-key (kbd "C-c r s") 'rinari-web-server)
+
 (provide 'init-ruby)

@@ -19,7 +19,6 @@
 (require 'init-org)
 (require 'init-projectile)
 (require 'init-rbenv)
-(require 'init-rinari)
 (require 'init-ruby)
 (require 'init-smartparens)
 (require 'init-web)
