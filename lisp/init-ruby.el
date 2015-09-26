@@ -1,6 +1,7 @@
 (require 'rspec-mode)
 (require 'rinari)
 (require 'rubocop)
+(require 'f)
 
 ;; auto modes
 (dolist (fp '("\\.rb$"
@@ -69,7 +70,21 @@
 (global-set-key (kbd "C-M-v") 'custom/vcr-toggle)
 
 ;; rinari commands
-(global-set-key (kbd "C-c r c") 'rinari-console)
 (global-set-key (kbd "C-c r s") 'rinari-web-server)
+
+;; ruby console
+(global-set-key (kbd "C-c r c") 'custom/ruby-console)
+
+(defun custom/ruby-console ()
+  "Try to open a rails-console. If it fails, open an IRB session."
+  (interactive)
+  (condition-case nil
+      (rinari-console)
+    (error (let* ((project-root
+                   (or (locate-dominating-file default-directory ".git")
+                       (error "You're not inside a project.")))
+                  (default-directory project-root)
+                  (project-name (f-filename project-root)))
+             (run-ruby "irb -Ilib" project-name)))))
 
 (provide 'init-ruby)
