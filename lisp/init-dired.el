@@ -28,4 +28,7 @@
 ;; disable buffer trail left by directory navigation
 (put 'dired-find-alternate-file 'disabled nil)
 
+;; use GNU ls for dired
+(setq insert-directory-program "gls")
+
 (provide 'init-dired)
