@@ -12,6 +12,7 @@
     clojure-mode
     dash
     f
+    gist
     git-timemachine
     guide-key
     helm
