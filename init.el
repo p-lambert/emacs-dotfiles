@@ -15,6 +15,7 @@
 (require 'init-git)
 (require 'init-guide-key)
 (require 'init-helm)
+(require 'init-markdown)
 (require 'init-multiple-cursors)
 (require 'init-mutant)
 (require 'init-org)
