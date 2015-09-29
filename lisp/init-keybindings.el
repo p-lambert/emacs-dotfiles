@@ -1,7 +1,7 @@
 (require 'bind-key)
 
 (defvar custom/strong-bindings
-  '("M-n" "M-p" "C-M-&" "C-c C-k")
+  '("M-n" "M-p" "C-M-&")
   "List of global keybindings to be ensured on every mode.")
 
 (defun custom/ensure-bindings-precedence (keys)

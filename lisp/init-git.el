@@ -10,7 +10,4 @@
 ;; disable magit startup message
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-(add-hook 'magit-commit-mode-hook
-          (lambda() (override-global-mode nil)))
-
 (provide 'init-git)
