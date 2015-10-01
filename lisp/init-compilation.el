@@ -1,6 +1,7 @@
 (require 'f)
 (require 'term)
 (require 'cc-mode)
+(require 'compile)
 
 (defun custom/compile-and-run (compiler-cmd)
   "Compile (through COMPILER-CMD) and run current file."
@@ -32,5 +33,6 @@
   (lambda () (interactive) (custom/compile-and-run "gcc")))
 (define-key c++-mode-map (kbd "C-c 0")
   (lambda () (interactive) (custom/compile-and-run "g++")))
+(define-key compilation-mode-map (kbd "C-c f") 'find-file-at-point)
 
 (provide 'init-compilation)
