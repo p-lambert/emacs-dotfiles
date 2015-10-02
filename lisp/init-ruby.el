@@ -67,14 +67,6 @@
     (setenv "VCR_OFF" "true")
     (message "VCR is OFF")))
 
-(global-set-key (kbd "C-M-v") 'custom/vcr-toggle)
-
-;; rinari commands
-(global-set-key (kbd "C-c r s") 'rinari-web-server)
-
-;; ruby console
-(global-set-key (kbd "C-c r c") 'custom/ruby-console)
-
 (defun custom/ruby-console ()
   "Try to open a rails-console. If it fails, open an IRB session."
   (interactive)
@@ -86,5 +78,12 @@
                   (default-directory project-root)
                   (project-name (f-filename project-root)))
              (run-ruby "irb -Ilib" project-name)))))
+
+
+;; keybindings
+(global-set-key (kbd "C-M-v") 'custom/vcr-toggle)
+(global-set-key (kbd "C-c r s") 'rinari-web-server)
+(global-set-key (kbd "C-c r c") 'custom/ruby-console)
+(global-set-key (kbd "C-c , ,") 'rspec-find-spec-or-target-other-window)
 
 (provide 'init-ruby)
