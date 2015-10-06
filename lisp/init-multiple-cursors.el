@@ -7,6 +7,10 @@
 
 ;; commands to run for all cursors
 (setq mc/cmds-to-run-for-all
-      '(custom/smart-move-beginning-of-line))
+      '(custom/smart-move-beginning-of-line
+        custom/yank-and-indent
+        kill-region
+        mark-sexp
+        sp-forward-sexp))
 
 (provide 'init-multiple-cursors)
