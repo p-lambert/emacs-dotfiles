@@ -17,3 +17,6 @@ var/
 
 # Eshell
 eshell/
+
+# Org
+.org-id-locations
