@@ -1,6 +1,8 @@
 (require 'f)
 (require 'projectile)
 (require 'helm)
+(require 'org)
+(require 'org-attach)
 
 (defvar custom/org-dir (f-long "~/Dropbox/Org"))
 
@@ -34,5 +36,6 @@
 
 (global-set-key (kbd "C-c [") 'custom/helm-org-files)
 (global-set-key (kbd "C-c ]") 'custom/org-open-project-file)
+(define-key org-mode-map (kbd "C-c f") 'org-attach-open-in-emacs)
 
 (provide 'init-org)
