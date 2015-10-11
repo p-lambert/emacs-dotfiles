@@ -10,4 +10,7 @@
 ;; disable magit startup message
 (setq magit-last-seen-setup-instructions "1.4.0")
 
+;; make pull --rebase default
+(setq magit-pull-arguments '("--rebase"))
+
 (provide 'init-git)
