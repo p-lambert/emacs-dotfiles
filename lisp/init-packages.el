@@ -10,6 +10,7 @@
     bind-key
     cider
     clojure-mode
+    coffee-mode
     dash
     f
     gist

@@ -8,6 +8,7 @@
 (require 'init-windows-defuns)
 
 ;; package-specific
+(require 'init-coffee)
 (require 'init-comint)
 (require 'init-compilation)
 (require 'init-dired)
