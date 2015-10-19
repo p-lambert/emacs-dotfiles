@@ -30,6 +30,7 @@
     rspec-mode
     rubocop
     smartparens
+    toggle-quotes
     web-mode
     yaml-mode
     yasnippet
