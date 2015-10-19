@@ -5,6 +5,7 @@
 (require 'org-attach)
 
 (defvar custom/org-dir (f-long "~/Dropbox/Org"))
+(setq org-startup-folded nil)
 
 (defun custom/org-get-filenames ()
   (when (file-directory-p custom/org-dir)
