@@ -15,6 +15,7 @@
 (require 'init-eshell)
 (require 'init-git)
 (require 'init-guide-key)
+(require 'init-haskell)
 (require 'init-helm)
 (require 'init-markdown)
 (require 'init-multiple-cursors)

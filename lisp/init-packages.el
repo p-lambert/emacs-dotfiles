@@ -16,6 +16,7 @@
     gist
     git-timemachine
     guide-key
+    haskell-mode
     helm
     helm-bundle-show
     helm-projectile
