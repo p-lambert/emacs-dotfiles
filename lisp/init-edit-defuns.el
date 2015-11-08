@@ -73,4 +73,8 @@ regions's beginning, ending and extension in lines."
   (yank)
   (call-interactively 'indent-region))
 
+(defun custom/chomp (str)
+  "Removes newline character at the the end of STR."
+  (if (string-match "\n$" str) (substring str 0 -1) str))
+
 (provide 'init-edit-defuns)
