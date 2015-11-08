@@ -26,6 +26,7 @@
 (global-set-key (kbd "C-c j") 'custom/join-line)
 (global-set-key (kbd "C-c /") 'custom/toggle-line-comment)
 (global-set-key (kbd "C-y") 'custom/yank-and-indent)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
 ;; window and buffer manipulation
 (global-set-key (kbd "M-o") 'other-window)
