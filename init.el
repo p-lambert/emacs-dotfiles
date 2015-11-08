@@ -25,6 +25,7 @@
 (require 'init-quotes)
 (require 'init-rbenv)
 (require 'init-ruby)
+(require 'init-scheme)
 (require 'init-smartparens)
 (require 'init-web)
 (require 'init-yas)
