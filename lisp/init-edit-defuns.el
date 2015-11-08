@@ -35,9 +35,9 @@
   "Kill current line or the ones covered by a marked region."
   (interactive)
   (custom/with-region-info
-   (if (and mark-active (> (point) (mark)))
-       (setq num-lines (* -1 num-lines)))
-     (kill-whole-line num-lines)))
+   (goto-char beg)
+   (kill-whole-line num-lines)
+   (kill-new (custom/chomp (car kill-ring)))))
 
 (defun custom/join-line ()
   "Join current line with the previous one or all covered by a marked region."
