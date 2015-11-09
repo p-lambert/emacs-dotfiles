@@ -42,7 +42,7 @@
               (list
                "[" mode-line-modified "]"
                "  "
-               "%b"
+               (propertize "%b" 'face 'bold)
                "  |  "
                'mode-name
                "  |  "
@@ -50,7 +50,7 @@
                " "
                '(:eval (branch-name))
                "  |  "
-               "%p (%l,%c)"
+               "%p (%l:%c)"
                ))
 
 ;; default window size
