@@ -23,6 +23,7 @@
 (require 'init-org)
 (require 'init-projectile)
 (require 'init-quotes)
+(require 'init-rainbow-delimiters)
 (require 'init-rbenv)
 (require 'init-ruby)
 (require 'init-scheme)

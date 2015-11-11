@@ -25,6 +25,7 @@
     markdown-mode
     multiple-cursors
     projectile
+    rainbow-delimiters
     rbenv
     restclient
     rinari
