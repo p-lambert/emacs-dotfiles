@@ -24,8 +24,7 @@
 
 ;; theme
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes"))
-;; available options: flatui | jellyburn
-(load-theme 'jellyburn t)
+(load-theme 'atom-one-dark t)
 
 ;; linum
 (defadvice linum-update-window (around linum-dynamic activate)
