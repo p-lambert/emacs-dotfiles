@@ -40,6 +40,8 @@
 
 (setq-default mode-line-format
               (list
+               ;; add padding to mode-line (hacky solution)
+               (propertize "\u200b" 'display '((raise -0.15) (height 1.2)))
                "[" mode-line-modified "]"
                "  "
                (propertize "%b" 'face 'bold)
