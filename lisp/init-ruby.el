@@ -30,6 +30,19 @@
 ;; ignore only app dir when performing the spec lookup
 (setq rspec-primary-source-dirs '("app"))
 
+;; auto-discover spec directory structure
+(defun custom/rspec-check-lib-dir (source-dirs)
+  (let ((lib-dir (expand-file-name "spec/lib" (rspec-project-root))))
+    (if (file-exists-p lib-dir)
+        (remove "lib" source-dirs)
+      (add-to-list 'source-dirs "lib"))))
+
+(defun custom/rspec-setup ()
+  (interactive)
+  (setq rspec-primary-source-dirs
+        (custom/rspec-check-lib-dir rspec-primary-source-dirs))
+  (message (format "RSpec source dirs set to: %s" rspec-primary-source-dirs)))
+
 ;; enable debugging tools (binding.pry or byebug)
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
