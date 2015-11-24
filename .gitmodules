@@ -1,6 +1,3 @@
-[submodule "themes/jellyburn-theme"]
-	path = themes/jellyburn-theme
-	url = https://github.com/p-lambert/jellyburn-theme.git
 [submodule "vendor/mutant"]
 	path = vendor/mutant
 	url = https://github.com/p-lambert/mutant.el.git
