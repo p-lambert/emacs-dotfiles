@@ -2,6 +2,7 @@
 (require 'helm-projectile)
 
 (global-set-key (kbd "C-x f") 'helm-projectile)
+(global-set-key (kbd "C-x C-d") 'projectile-dired)
 
 (projectile-global-mode)
 
