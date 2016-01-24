@@ -24,6 +24,7 @@
     magit
     markdown-mode
     multiple-cursors
+    mutant
     projectile
     rainbow-delimiters
     rbenv
