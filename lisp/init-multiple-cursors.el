@@ -10,6 +10,7 @@
       '(
         custom/smart-move-beginning-of-line
         custom/yank-and-indent
+        keyboard-escape-quit
         kill-region
         mark-sexp
         org-beginning-of-line
