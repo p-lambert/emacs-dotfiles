@@ -18,6 +18,8 @@
 
 ;; line numbers
 (add-hook 'prog-mode-hook 'linum-mode)
+;; enable current line hightlighting
+(global-hl-line-mode t)
 
 ;; fonts
 (set-default-font "Fira Mono 14")
