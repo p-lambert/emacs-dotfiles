@@ -24,7 +24,7 @@
 (global-whitespace-mode)
 
 (setq whitespace-global-modes
-      '(not magit-mode git-commit-mode dired-mode web-mode))
+      '(not magit-mode git-commit-mode dired-mode web-mode org-mode))
 
 (setq whitespace-style
       '(
