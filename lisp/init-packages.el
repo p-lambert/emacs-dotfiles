@@ -12,6 +12,7 @@
     clojure-mode
     coffee-mode
     dash
+    expand-region
     f
     gist
     git-timemachine
@@ -32,6 +33,7 @@
     rinari
     rspec-mode
     rubocop
+    smart-forward
     smartparens
     toggle-quotes
     web-mode

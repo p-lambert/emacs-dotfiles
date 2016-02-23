@@ -12,6 +12,7 @@
 (require 'init-compilation)
 (require 'init-dired)
 (require 'init-eshell)
+(require 'init-expand-region)
 (require 'init-git)
 (require 'init-guide-key)
 (require 'init-haskell)
