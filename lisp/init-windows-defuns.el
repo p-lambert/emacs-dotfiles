@@ -30,4 +30,21 @@
     (kill-new buffer-file-name)
     (message "File name added to kill-ring.")))
 
+(defun custom/horizontally-split-p ()
+  "Find out if opened windows are horizontally split."
+  (let* ((this (selected-window))
+         (that (next-window))
+         (this-x (car (window-edges this)))
+         (that-x (car (window-edges that))))
+    (= this-x that-x)))
+
+(defun custom/toggle-split ()
+  "Toggle between horizontal and vertical splits."
+  (interactive)
+  (let ((h-split (custom/horizontally-split-p)))
+    (delete-window)
+    (if h-split
+        (custom/hsplit-last-buffer)
+      (custom/vsplit-last-buffer))))
+
 (provide 'init-windows-defuns)

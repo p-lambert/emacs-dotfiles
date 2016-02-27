@@ -37,6 +37,8 @@
 (global-set-key (kbd "M-3") 'split-window-horizontally)
 (global-set-key (kbd "C-x 2") 'custom/vsplit-last-buffer)
 (global-set-key (kbd "C-x 3") 'custom/hsplit-last-buffer)
+(global-set-key (kbd "C-x 3") 'custom/hsplit-last-buffer)
+(global-set-key (kbd "C-x 4") 'custom/toggle-split)
 (global-set-key (kbd "C-c -") 'custom/swap-buffers-in-windows)
 (global-set-key (kbd "C-l") 'previous-buffer)
 (global-set-key (kbd "C-c l") 'recenter-top-bottom)
