@@ -23,7 +23,7 @@
     (set-window-buffer other this-buffer)
     (set-window-buffer this other-buffer)))
 
-(defun custom/buffer-file-name-to-kill-ring ()
+(defun custom/copy-buffer-file-name ()
   "Get current buffer's filename and add it to the kill-ring."
   (interactive)
   (when buffer-file-name

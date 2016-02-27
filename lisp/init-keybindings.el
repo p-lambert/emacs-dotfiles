@@ -40,7 +40,7 @@
 (global-set-key (kbd "C-c -") 'custom/swap-buffers-in-windows)
 (global-set-key (kbd "C-l") 'previous-buffer)
 (global-set-key (kbd "C-c l") 'recenter-top-bottom)
-(global-set-key (kbd "C-c y") 'custom/buffer-file-name-to-kill-ring)
+(global-set-key (kbd "C-c y") 'custom/copy-buffer-file-name)
 
 
 ;; misc
