@@ -28,12 +28,6 @@
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes"))
 (load-theme 'atom-one-dark t)
 
-;; linum
-(defadvice linum-update-window (around linum-dynamic activate)
-  (let* ((w (length (number-to-string (count-lines (point-min) (point-max)))))
-         (linum-format (concat " %" (number-to-string w) "d ")))
-    ad-do-it))
-
 ;; modeline
 (defun branch-name ()
   ;; for powerline patched fonts, the unicode char \ue0a0 is cooler!
