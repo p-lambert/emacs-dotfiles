@@ -6,6 +6,7 @@
 
 (defvar my-packages
   '(
+    atom-one-dark-theme
     ag
     bind-key
     cider
@@ -29,6 +30,7 @@
     projectile
     rainbow-delimiters
     rbenv
+    request
     restclient
     rinari
     rspec-mode
