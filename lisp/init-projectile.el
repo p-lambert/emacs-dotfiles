@@ -1,20 +1,22 @@
 (require 'projectile)
 (require 'helm-projectile)
 
+(projectile-global-mode)
+
 (global-set-key (kbd "C-x f") 'helm-projectile)
 (global-set-key (kbd "C-x C-d") 'projectile-dired)
 
-(projectile-global-mode)
+(defvar custom/projectile-blacklist '(".gems" "log"))
 
-(setq projectile-completion-system 'helm)
-
-(setq projectile-switch-project-action 'projectile-dired)
+(setq
+ projectile-completion-system 'helm
+ projectile-switch-project-action 'projectile-dired)
 
 (setq helm-projectile-sources-list
       '(helm-source-projectile-buffers-list helm-source-projectile-files-list))
 
-;; ignore .gems directory
-(add-to-list 'projectile-globally-ignored-directories ".gems")
+(dolist (ignored custom/projectile-blacklist)
+        (add-to-list 'projectile-globally-ignored-directories ignored))
 
 (defun custom/projectile-eshell ()
   "Open an eshell buffer at project's root directory."
