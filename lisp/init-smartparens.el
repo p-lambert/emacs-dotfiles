@@ -23,4 +23,8 @@
 (dolist (mode '(lisp-mode-hook emacs-lisp-mode-hook clojure-mode-hook))
   (add-hook mode 'show-smartparens-mode))
 
+;; disable smartparens on python-mode
+(require 'python)
+(add-hook 'python-mode-hook 'turn-off-smartparens-mode)
+
 (provide 'init-smartparens)
