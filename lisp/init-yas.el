@@ -35,6 +35,7 @@
 
 (define-key snippet-mode-map (kbd "C-x C-s") 'custom/yas-save-snippet)
 (global-set-key (kbd "C-c y n") 'yas-new-snippet)
+(global-set-key (kbd "C-c y t") 'yas-describe-tables)
 (global-set-key (kbd "C-c y l") 'custom/yas-dired)
 
 (provide 'init-yas)
