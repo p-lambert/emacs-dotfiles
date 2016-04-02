@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: pipefail
+# key: pipefail
+# --
+$0# set -e: whole script exit when a command fails.
+# set -u: treat unset variables as an error, and immediately exit.
+# set -o pipefail: pipeline returns an error code if any command fails
+set -euo pipefail
