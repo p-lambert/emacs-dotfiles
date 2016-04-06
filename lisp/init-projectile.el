@@ -6,7 +6,7 @@
 (global-set-key (kbd "C-x f") 'helm-projectile)
 (global-set-key (kbd "C-x C-d") 'projectile-dired)
 
-(defvar custom/projectile-blacklist '(".gems" "log"))
+(defvar custom/projectile-blacklist '(".gems" "log" "tmp"))
 
 (setq
  projectile-completion-system 'helm
