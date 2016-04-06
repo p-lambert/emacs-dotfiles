@@ -2,6 +2,7 @@
 (require 'request)
 (require 'dash)
 
+(defvar cas-cache-ttl (* 15 60))
 (defvar cas--headers "^CAS-\\(Host\\|Service\\|User\\|Password\\|Auth\\)$")
 (defvar cas--cache nil)
 (defvar cas--response nil)
@@ -16,12 +17,10 @@
 (defun cas-authenticate (&optional headers)
   (interactive)
   (let* ((host (cas--credential "CAS-Host" headers))
-         (service (cas--credential "CAS-Service" headers))
+         (serv (cas--credential "CAS-Service" headers))
          (user (cas--credential "CAS-User" headers))
          (pass (cas--credential "CAS-Password" headers))
-         (ticket (or (cas--cache service)
-                     (cas--request host service user pass))))
-    (cas--cache-add ticket service)
+         (ticket (cas--try-cache serv (cas--request host serv user pass))))
     (if headers
         (cas--attach-ticket ticket)
       (cas--copy ticket))))
@@ -57,10 +56,17 @@
   (match-string 0))
 
 (defun cas--cache (service)
-  (cdr (assoc service cas--cache)))
+  (-let (((_ . (service-ticket . ttl)) (assoc service cas--cache)))
+    (when (and ttl (time-less-p (current-time) ttl))
+      (message "Cache hit on %s" service-ticket)
+      service-ticket)))
 
 (defun cas--cache-add (ticket service)
-  (add-to-list 'cas--cache `(,service . ,ticket)))
+  (let ((ttl (time-add (current-time)
+                       (seconds-to-time cas-cache-ttl))))
+    (setq cas--cache (assq-delete-all service cas--cache))
+    (add-to-list 'cas--cache (cons service (cons ticket ttl)))
+    ticket))
 
 (defun cas-cache-flush ()
   (interactive)
@@ -97,5 +103,11 @@
   `(-let [(auth non-auth) (cas--partition-headers ,all-headers)]
      ,(list 'setq all-headers 'non-auth)
      `,auth))
+
+(defmacro cas--try-cache (service request-form)
+  `(or (cas--cache ,service)
+       (let ((ticket ,request-form))
+        (when ticket
+          (cas--cache-add ticket ,service)))))
 
 (provide 'init-cas)
