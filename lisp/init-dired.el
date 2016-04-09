@@ -2,6 +2,8 @@
 (require 's)
 (require 'f)
 
+(defvar custom/dired-default-directory "~/Code/")
+
 (defun custom/dired-open ()
   (interactive)
   (let ((file (ignore-errors (dired-get-filename))))
@@ -30,5 +32,13 @@
 
 ;; use GNU ls for dired
 (setq insert-directory-program "gls")
+
+;; always suggest custom/dired-default-directory
+(defun custom/dired ()
+  (interactive)
+  (let ((default-directory custom/dired-default-directory))
+    (call-interactively 'dired)))
+
+(global-set-key (kbd "C-x d") 'custom/dired)
 
 (provide 'init-dired)
