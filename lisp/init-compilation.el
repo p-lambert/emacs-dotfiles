@@ -1,4 +1,6 @@
 (require 'f)
+(require 's)
+(require 'dash)
 (require 'term)
 (require 'cc-mode)
 (require 'compile)
@@ -19,13 +21,14 @@
     (setenv "RUN_AFTER_COMPILE" nil)))
 
 (defun custom/run-program (program window)
-  (let* ((program-name (f-filename program))
-         (buffer-name (format "*program %s*" program-name))
-         (buffer (get-buffer-create buffer-name)))
+  (-let* ((buffer-name (format "*program %s*" program))
+          (buffer (get-buffer-create buffer-name))
+          ((command args) (s-split-up-to " " program 1))
+          (args (or args "")))
     (set-window-buffer window buffer)
     (with-current-buffer buffer
       (erase-buffer))
-    (term-ansi-make-term buffer-name program)))
+    (term-ansi-make-term buffer-name command nil args)))
 
 (add-hook 'compilation-finish-functions 'custom/run-after-compile-hook)
 
