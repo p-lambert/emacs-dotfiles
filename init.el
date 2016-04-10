@@ -18,6 +18,7 @@
 (require 'init-guide-key)
 (require 'init-haskell)
 (require 'init-helm)
+(require 'init-java)
 (require 'init-markdown)
 (require 'init-multiple-cursors)
 (require 'init-mutant)
