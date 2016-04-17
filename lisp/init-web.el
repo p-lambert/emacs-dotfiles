@@ -11,10 +11,10 @@
 
 (defun custom/prompt-web-mode-indent ()
   (interactive)
-  (let* ((default (number-to-string custom/web-mode-indent))
-         (indent-offset
-          (read-string "Number of spaces to indent: " default nil default)))
-    (setq web-mode-markup-indent-offset (string-to-number indent-offset))))
+  (let* ((default custom/web-mode-indent)
+         (offset (read-number "Number of spaces to indent: " default)))
+    (setq web-mode-markup-indent-offset offset)
+    (setq web-mode-code-indent-offset offset)))
 
 (defun custom/web-mode-setup ()
   (setq web-mode-markup-indent-offset custom/web-mode-indent)
