@@ -65,4 +65,7 @@
   (ad-set-arg 1 t)
   (mapcar #'disable-theme custom-enabled-themes))
 
+;; fix file opening (OSX specific)
+(setq ns-pop-up-frames nil)
+
 (provide 'init-ui)
