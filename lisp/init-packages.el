@@ -1,12 +1,10 @@
 (require 'package)
-(package-initialize)
 
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (defvar my-packages
   '(
-    atom-one-dark-theme
     ag
     bind-key
     cider
@@ -42,11 +40,11 @@
     yaml-mode
     yasnippet
     ;; themes
+    atom-one-dark-theme
     flatui-theme
     )
   "A list of packages to be installed at application launch.")
 
-;; package loading (stolen from milhouse)
 (setq packaged-contents-refreshed-p nil)
 (dolist (p my-packages)
   (when (not (package-installed-p p))
