@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: private
+# key: pr
+# --
+private
+
+$0`(call-interactively 'indent-for-tab-command)`
