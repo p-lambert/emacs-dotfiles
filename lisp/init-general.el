@@ -11,6 +11,8 @@
  make-backup-files nil
  auto-save-default nil
  backup-inhibited t
+ ;; don't display byte-compile warnings
+ warning-minimum-level :emergency
  )
 
 ;; enable protected commands
