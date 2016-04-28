@@ -8,7 +8,11 @@
       helm-buffers-fuzzy-matching t
       helm-buffer-max-length 25
       helm-buffer-details-flag nil
-      helm-display-header-line nil
-      helm-mode-line-string "")
+      helm-display-header-line nil)
+
+;; disable helm mode-line
+(with-eval-after-load 'helm
+ (defun helm-display-mode-line (&rest _)
+   (setq mode-line-format nil)))
 
 (provide 'init-helm)
