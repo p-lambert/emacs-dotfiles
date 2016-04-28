@@ -12,6 +12,7 @@
 (require 'init-cas)
 (require 'init-coffee)
 (require 'init-comint)
+(require 'init-company)
 (require 'init-compilation)
 (require 'init-dired)
 (require 'init-eshell)

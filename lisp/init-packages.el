@@ -10,6 +10,7 @@
     cider
     clojure-mode
     coffee-mode
+    company
     dash
     expand-region
     f
