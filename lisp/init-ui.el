@@ -29,7 +29,7 @@
 
 ;; theme
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes"))
-(load-theme 'atom-one-dark t)
+(load-theme 'dracula t)
 
 ;; modeline
 (defun branch-name ()
