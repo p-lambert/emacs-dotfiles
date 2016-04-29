@@ -22,6 +22,7 @@
     helm
     helm-bundle-show
     helm-projectile
+    hlinum
     inf-ruby
     magit
     markdown-mode

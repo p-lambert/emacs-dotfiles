@@ -20,16 +20,27 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; line numbers
-(add-hook 'prog-mode-hook 'linum-mode)
-;; enable current line hightlighting
-(global-hl-line-mode t)
+(require 'linum)
+(require 'hlinum)
 
-;; fonts
-(set-default-font "Fira Mono 14")
+(defadvice linum-update-window (around linum-dynamic activate)
+  (let* ((num-lines (count-lines (point-min) (point-max)))
+         (num-digits (length (number-to-string num-lines)))
+         (linum-format (format " %%%dd " num-digits)))
+    ad-do-it))
+
+(add-hook 'prog-mode-hook 'linum-mode)
+(hlinum-activate)
 
 ;; theme
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes"))
 (load-theme 'dracula t)
+
+;; fonts
+(set-default-font "Fira Mono 14")
+;; smaller elements
+(dolist (face '(linum mode-line mode-line-inactive linum-highlight-face))
+  (set-face-attribute face nil :font "Fira Mono 12"))
 
 ;; modeline
 (defun branch-name ()
