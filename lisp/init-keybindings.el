@@ -48,6 +48,7 @@
 (global-set-key (kbd "C-c e") 'custom/projectile-eshell)
 (global-set-key (kbd "C-c s") 'custom/open-or-create-scratch-buffer)
 (global-set-key (kbd "C-z") 'ignore)
+(global-set-key (kbd "C-h C-d") 'dash-at-point)
 (global-set-key (kbd "M-e") 'ignore)
 
 ;; set a custom keybinding for toggling binding

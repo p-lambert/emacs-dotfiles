@@ -12,6 +12,7 @@
     coffee-mode
     company
     dash
+    dash-at-point
     expand-region
     f
     gist
