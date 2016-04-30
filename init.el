@@ -34,6 +34,7 @@
 (require 'init-scheme)
 (require 'init-smartparens)
 (require 'init-web)
+(require 'init-whitespace)
 (require 'init-yas)
 
 (require 'init-keybindings)
