@@ -13,4 +13,13 @@
 ;; make pull --rebase default
 (setq magit-pull-arguments '("--rebase"))
 
+(defun custom/branch-changelog ()
+  (interactive)
+  (let ((default-directory (magit-toplevel))
+        (cmd "git log --format='* %s' origin/master..HEAD"))
+    (kill-new (shell-command-to-string cmd))
+    (message "Changelog copied to kill-ring.")))
+
+(global-set-key (kbd "C-c g m") 'custom/branch-changelog)
+
 (provide 'init-git)
