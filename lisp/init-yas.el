@@ -16,15 +16,17 @@
   (interactive)
   (if buffer-file-name
       (save-buffer)
-    (let (mode key location)
+    (let (mode
+          snippet-name
+          location
+          (yas-dir (car yas-snippet-dirs)))
       (save-excursion
         (beginning-of-buffer)
-        (search-forward-regexp "key: \\([a-z-_]+\\)")
-        (setq key (match-string 1)))
+        (search-forward-regexp "name: \\([a-z-_]+\\)")
+        (setq snippet-name (match-string 1)))
 
       (setq mode (read-string "Snippet mode: " custom/yas-guess-mode))
-      (setq key (or key (read-string "Snippet key: ")))
-      (setq location (format "%s/%s/%s" yas-snippet-dirs mode key))
+      (setq location (format "%s/%s/%s" yas-dir mode snippet-name))
 
       (write-file location)))
   (yas-reload-all))
