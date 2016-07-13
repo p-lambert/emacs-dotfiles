@@ -39,6 +39,7 @@
     smart-forward
     smartparens
     toggle-quotes
+    visual-fill-column
     web-mode
     yaml-mode
     yasnippet

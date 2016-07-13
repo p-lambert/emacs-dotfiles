@@ -3,6 +3,7 @@
 
 (setq word-wrap t)
 (setq fill-column 80)
+(setq-default tab-width 4)
 
 ;; whitespace display
 (global-whitespace-mode)
