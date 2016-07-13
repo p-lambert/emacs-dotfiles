@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: debug
+# key: debug
+# --
+puts '#'*90;${1:p(caller)}
+$0
+puts '#'*90
