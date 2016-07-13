@@ -50,6 +50,7 @@
 (global-set-key (kbd "C-z") 'ignore)
 (global-set-key (kbd "C-h C-d") 'dash-at-point)
 (global-set-key (kbd "M-e") 'ignore)
+(global-set-key (kbd "C-c w") 'global-whitespace-mode)
 
 ;; set a custom keybinding for toggling binding
 (global-set-key (kbd "C-M-&") 'override-global-mode)
