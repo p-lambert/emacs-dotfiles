@@ -201,7 +201,7 @@
    `(magit-log-author ((,class (:foreground ,fg3))))
    `(magit-hash ((,class (:foreground ,fg2))))
    `(magit-diff-file-header ((,class (:foreground ,fg2 :background ,bg3))))
-   `(lazy-highlight ((,class (:foreground ,fg2 :background ,bg3))))
+   `(lazy-highlight ((,class (:foreground ,bg1 :background ,warning))))
    `(term ((,class (:foreground ,fg1 :background ,bg1))))
    `(term-color-black ((,class (:foreground ,bg3 :background ,bg3))))
    `(term-color-blue ((,class (:foreground ,func :background ,func))))
