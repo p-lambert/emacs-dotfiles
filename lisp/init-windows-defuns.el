@@ -28,7 +28,7 @@
   (interactive)
   (when buffer-file-name
     (kill-new buffer-file-name)
-    (message "File name added to kill-ring.")))
+    (message buffer-file-name)))
 
 (defun custom/horizontally-split-p ()
   "Find out if opened windows are horizontally split."
