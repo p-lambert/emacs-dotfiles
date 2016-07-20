@@ -28,6 +28,7 @@
     markdown-mode
     multiple-cursors
     mutant
+    org
     projectile
     rainbow-delimiters
     rbenv
