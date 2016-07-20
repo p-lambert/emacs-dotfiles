@@ -47,11 +47,12 @@
 ;; misc
 (global-set-key (kbd "C-c e") 'custom/projectile-eshell)
 (global-set-key (kbd "C-c s") 'custom/open-or-create-scratch-buffer)
-(global-set-key (kbd "C-z") 'ignore)
 (global-set-key (kbd "C-h C-d") 'dash-at-point)
-(global-set-key (kbd "M-e") 'ignore)
 (global-set-key (kbd "C-c w") 'global-whitespace-mode)
 (global-set-key (kbd "C-c 8") 'custom/search-asterisk)
+(global-set-key (kbd "M-e") 'ignore)
+(global-set-key (kbd "s-n") 'ignore)
+(global-set-key (kbd "C-z") 'ignore)
 
 ;; set a custom keybinding for toggling binding
 (global-set-key (kbd "C-M-&") 'override-global-mode)
