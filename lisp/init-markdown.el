@@ -5,9 +5,7 @@
 
 ;; enable visual-fill-column for markdown files
 (add-hook 'markdown-mode-hook
-          (progn
-            (visual-line-mode)
-            (visual-fill-column-mode)))
+          (lambda () (yas-minor-mode)))
 
 ;; use vanilla yank function (without indenting after)
 (define-key markdown-mode-map (kbd "C-y") 'yank)
