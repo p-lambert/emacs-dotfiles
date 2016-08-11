@@ -2,7 +2,7 @@
 (setq-default indent-tabs-mode nil)
 
 (setq word-wrap t)
-(setq fill-column 80)
+(setq-default fill-column 80)
 (setq-default tab-width 4)
 
 ;; whitespace display
