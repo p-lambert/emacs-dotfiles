@@ -1,7 +1,5 @@
 (require 'package)
 
-(setq custom/vendor-folder (expand-file-name "vendor" user-emacs-directory))
-
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
@@ -51,13 +49,6 @@
     flatui-theme
     )
   "A list of packages to be installed at application launch.")
-
-;; add every package inside vendor folder to `load-path`
-(let ((no-dots "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)"))
-  (dolist (entry (directory-files custom/vendor-folder nil no-dots))
-    (let ((full-path (expand-file-name entry custom/vendor-folder)))
-      (when (file-directory-p full-path)
-        (add-to-list 'load-path full-path)))))
 
 (setq packaged-contents-refreshed-p nil)
 (dolist (p my-packages)

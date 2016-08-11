@@ -3,6 +3,7 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (require 'init-packages)
+(require 'init-vendor-packages)
 (require 'init-general)
 (require 'init-edit-defuns)
 (require 'init-misc-defuns)
