@@ -5,6 +5,7 @@
 (require 'org-attach)
 
 (defvar custom/org-dir (f-long "~/Dropbox/Org"))
+(setq org-agenda-files (list custom/org-dir))
 (setq org-startup-folded nil)
 
 (defun custom/org-get-filenames ()
@@ -35,8 +36,11 @@
     :candidates (custom/org-get-filenames)
     :action '(("Open file" . custom/org-open-project-file))))
 
+(require 'init-org-code)
+
 (global-set-key (kbd "C-c [") 'custom/helm-org-files)
 (global-set-key (kbd "C-c ]") 'custom/org-open-project-file)
+(global-set-key (kbd "C-c a") 'org-agenda)
 (define-key org-mode-map (kbd "C-c C-k") 'custom/copy-line)
 (define-key org-mode-map (kbd "C-c f") 'org-attach-open-in-emacs)
 
