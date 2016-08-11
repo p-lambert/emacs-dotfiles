@@ -14,6 +14,7 @@
   (cons key (lookup-key (current-global-map) (kbd key))))
 
 ;; movement and editing
+(global-set-key (kbd "M-s") 'forward-word)
 (global-set-key (kbd "M-n") (lambda () (interactive) (next-line 5)))
 (global-set-key (kbd "M-p") (lambda () (interactive) (previous-line 5)))
 (global-set-key (kbd "C-<return>") 'custom/insert-new-line)
