@@ -13,6 +13,8 @@
  backup-inhibited t
  ;; don't display byte-compile warnings
  warning-minimum-level :emergency
+ ;; don't display any messages on scratch buffer
+ initial-scratch-message nil
  )
 
 ;; enable protected commands
