@@ -14,14 +14,9 @@
         ("events" . ?e)
         ("nyu" . ?n)))
 
-(defun custom/org-toggle-narrowing ()
-  (interactive)
-  (if (not (buffer-narrowed-p))
-      (org-narrow-to-subtree)
-    (widen)))
-
 (require 'init-org-code)
 (require 'init-org-files)
+(require 'init-org-defuns)
 
 (global-set-key (kbd "C-c [") 'custom/helm-org-files)
 (global-set-key (kbd "C-c ]") 'custom/org-open-project-file)
