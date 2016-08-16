@@ -1,9 +1,11 @@
 (require 'org)
 (require 'org-attach)
 
-(defvar custom/org-dir (f-long "~/Dropbox/Org"))
-(setq org-agenda-files (list custom/org-dir))
-(setq org-startup-folded nil)
+(defvar custom/org-dir "~/Dropbox/Org")
+
+(setq org-agenda-files (list custom/org-dir)
+      org-default-notes-file (expand-file-name "notes.org" custom/org-dir)
+      org-startup-folded nil)
 
 ;; custom tag preset
 (setq org-tag-alist
@@ -12,7 +14,8 @@
         ("ideas" . ?i)
         ("emacs" . ?m)
         ("events" . ?e)
-        ("nyu" . ?n)))
+        ("nyu" . ?n)
+        ))
 
 (require 'init-org-code)
 (require 'init-org-files)
