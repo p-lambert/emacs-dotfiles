@@ -35,6 +35,14 @@
   (helm-build-sync-source "My Org Files"
     :candidates (custom/org-get-filenames)
     :action '(("Open file" . custom/org-open-project-file))))
+;; custom tag preset
+(setq org-tag-alist
+      '(("personal" . ?p)
+        ("work" . ?w)
+        ("ideas" . ?i)
+        ("emacs" . ?m)
+        ("events" . ?e)
+        ("nyu" . ?n)))
 
 (defun custom/org-toggle-narrowing ()
   (interactive)
