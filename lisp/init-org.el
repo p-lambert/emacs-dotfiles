@@ -47,6 +47,9 @@
 (global-set-key (kbd "C-c [") 'custom/helm-org-files)
 (global-set-key (kbd "C-c ]") 'custom/org-open-project-file)
 (global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c M-l") 'org-store-link)
+
 (define-key org-mode-map (kbd "C-c C-k") 'custom/copy-line)
 (define-key org-mode-map (kbd "C-c f") 'org-attach-open-in-emacs)
 (define-key org-mode-map (kbd "C-c f") 'org-attach-open-in-emacs)
