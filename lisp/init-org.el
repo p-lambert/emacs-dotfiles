@@ -54,7 +54,6 @@
 
 (define-key org-mode-map (kbd "C-c C-k") 'custom/copy-line)
 (define-key org-mode-map (kbd "C-c f") 'org-attach-open-in-emacs)
-(define-key org-mode-map (kbd "C-c f") 'org-attach-open-in-emacs)
 (define-key org-mode-map (kbd "C-x C-n") 'custom/org-toggle-narrowing)
 (define-key org-mode-map (kbd "C-c [") nil)
 (define-key org-mode-map (kbd "C-c ]") 'previous-buffer)
