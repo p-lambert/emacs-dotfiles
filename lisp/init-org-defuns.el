@@ -2,6 +2,7 @@
   (interactive)
   (if (not (buffer-narrowed-p))
       (org-narrow-to-subtree)
-    (widen)))
+    (widen)
+    (call-interactively 'recenter-top-bottom)))
 
 (provide 'init-org-defuns)
