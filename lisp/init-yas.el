@@ -35,6 +35,13 @@
   (interactive)
   (dired yas-snippet-dirs))
 
+;; Fix integration with `org-mode`
+(add-hook 'org-mode-hook
+          (lambda ()
+            (yas-minor-mode)
+            (org-set-local 'yas/trigger-key [tab])
+            (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
+
 (define-key snippet-mode-map (kbd "C-x C-s") 'custom/yas-save-snippet)
 (global-set-key (kbd "C-c y n") 'yas-new-snippet)
 (global-set-key (kbd "C-c y t") 'yas-describe-tables)
