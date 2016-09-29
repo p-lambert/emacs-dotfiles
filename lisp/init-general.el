@@ -15,6 +15,8 @@
  warning-minimum-level :emergency
  ;; don't display any messages on scratch buffer
  initial-scratch-message nil
+ ;; add newline character to the end of file
+ require-final-newline t
  )
 
 ;; enable protected commands
