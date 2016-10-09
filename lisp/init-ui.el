@@ -67,10 +67,6 @@
 ;; default window size
 (when window-system (set-frame-size (selected-frame) 115 35))
 
-;; force horizontal splits
-(setq split-height-threshold nil)
-(setq split-width-threshold 80)
-
 ;; fix theme switching
 (defadvice load-theme (before smooth-theme-switching activate)
   (ad-set-arg 1 t)

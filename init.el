@@ -8,6 +8,7 @@
 (require 'init-edit-defuns)
 (require 'init-misc-defuns)
 (require 'init-windows-defuns)
+(require 'init-windowing)
 
 ;; package-specific
 (require 'init-cas)
