@@ -44,6 +44,7 @@
 (global-set-key (kbd "C-l") 'previous-buffer)
 (global-set-key (kbd "C-c l") 'recenter-top-bottom)
 (global-set-key (kbd "C-c y y") 'custom/copy-buffer-file-name)
+(global-set-key (kbd "s-t") 'new-frame)
 
 ;; misc
 (global-set-key (kbd "C-c e") 'custom/projectile-eshell)

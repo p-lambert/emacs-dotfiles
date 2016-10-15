@@ -38,6 +38,7 @@
 
 ;; fonts
 (set-default-font "Fira Mono 14")
+(set-frame-font "Fira Mono 14" t t)
 ;; smaller elements
 (dolist (face '(linum mode-line mode-line-inactive linum-highlight-face))
   (set-face-attribute face nil :font "Fira Mono 12"))
