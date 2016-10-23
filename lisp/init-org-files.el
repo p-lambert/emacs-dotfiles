@@ -13,10 +13,12 @@
   (let ((org-file (format "%s.org" name)))
     (f-join custom/org-dir org-file)))
 
-(defun custom/org-open-project-file (&optional name)
+(defun custom/org-open-project-file ()
   (interactive)
-  (let ((filename (or name (projectile-project-name))))
-    (find-file (custom/org-file-path filename))))
+  (let* ((link (f-join (projectile-project-root) ".project.org"))
+         (try-link (and (f-exists? link) link))
+         (default-file (custom/org-file-path (projectile-project-name))))
+    (find-file (or try-link default-file))))
 
 ;; create a helm buffer displaying all my .org files
 (defun custom/helm-org-files ()
@@ -28,6 +30,7 @@
 (defun custom/helm-org-files-source ()
   (helm-build-sync-source "My Org Files"
     :candidates (custom/org-get-filenames)
-    :action '(("Open file" . custom/org-open-project-file))))
+    :action '(("Open file" .
+               (lambda (file) (find-file (custom/org-file-path file)))))))
 
 (provide 'init-org-files)
