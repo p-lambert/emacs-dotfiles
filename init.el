@@ -35,6 +35,7 @@
 (require 'init-ruby)
 (require 'init-scheme)
 (require 'init-smartparens)
+(require 'init-spell)
 (require 'init-web)
 (require 'init-whitespace)
 (require 'init-yas)

@@ -21,6 +21,7 @@
     haskell-mode
     helm
     helm-bundle-show
+    helm-flyspell
     helm-projectile
     hlinum
     inf-ruby
