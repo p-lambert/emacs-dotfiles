@@ -15,6 +15,7 @@ projectile.cache
 auto-save-list/
 var/
 bookmarks
+custom.el
 
 # Eshell
 eshell/

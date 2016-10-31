@@ -17,6 +17,8 @@
  initial-scratch-message nil
  ;; add newline character to the end of file
  require-final-newline t
+ ;; set file for custom variables
+ custom-file (expand-file-name "custom.el" user-emacs-directory)
  )
 
 ;; enable protected commands
