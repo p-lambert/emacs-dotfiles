@@ -1,3 +1,5 @@
+(require 'f)
+
 (defun custom/vsplit-last-buffer ()
   "Vertically split window showing last buffer."
   (interactive)
@@ -23,12 +25,18 @@
     (set-window-buffer other this-buffer)
     (set-window-buffer this other-buffer)))
 
-(defun custom/copy-buffer-file-name ()
+(defun custom/copy-buffer-file-name (relative-p)
   "Get current buffer's filename and add it to the kill-ring."
-  (interactive)
-  (when buffer-file-name
-    (kill-new buffer-file-name)
-    (message buffer-file-name)))
+  (interactive "P")
+  (let ((file-name (custom/get-buffer-file-name relative-p)))
+    (when file-name
+      (kill-new file-name)
+      (message file-name))))
+
+(defun custom/get-buffer-file-name (&optional relative-p)
+  (if (and relative-p (projectile-project-p))
+      (f-relative buffer-file-name (projectile-project-root))
+    buffer-file-name))
 
 (defun custom/horizontally-split-p ()
   "Find out if opened windows are horizontally split."
