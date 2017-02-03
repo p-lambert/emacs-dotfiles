@@ -25,4 +25,7 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
+;; don't bother with local variable safety
+(setq enable-local-variables :all)
+
 (provide 'init-general)
