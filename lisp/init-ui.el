@@ -1,3 +1,4 @@
+(menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
@@ -39,6 +40,14 @@
 ;; fonts
 (set-default-font "Fira Mono 14")
 (set-frame-font "Fira Mono 14" t t)
+
+(setq default-frame-alist
+      '(
+        (width . 155)
+        (height . 40)
+        (font . "Fira Mono 14")
+        (vertical-scroll-bars . nil)))
+
 ;; smaller elements
 (dolist (face '(linum mode-line mode-line-inactive linum-highlight-face))
   (set-face-attribute face nil :font "Fira Mono 12"))
@@ -66,7 +75,7 @@
                ))
 
 ;; default window size
-(when window-system (set-frame-size (selected-frame) 115 35))
+(when window-system (set-frame-size (selected-frame) 155 40))
 
 ;; fix theme switching
 (defadvice load-theme (before smooth-theme-switching activate)
