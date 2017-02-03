@@ -11,6 +11,7 @@
 (require 'init-windowing)
 
 ;; package-specific
+(require 'init-c)
 (require 'init-cas)
 (require 'init-coffee)
 (require 'init-comint)
