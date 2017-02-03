@@ -39,7 +39,6 @@
     rspec-mode
     rubocop
     smart-forward
-    smartparens
     toggle-quotes
     visual-fill-column
     web-mode

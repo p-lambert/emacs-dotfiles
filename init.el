@@ -34,7 +34,6 @@
 (require 'init-rbenv)
 (require 'init-ruby)
 (require 'init-scheme)
-(require 'init-smartparens)
 (require 'init-spell)
 (require 'init-web)
 (require 'init-whitespace)
