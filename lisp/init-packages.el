@@ -6,6 +6,7 @@
 (defvar my-packages
   '(
     ag
+    auctex
     bind-key
     cider
     clojure-mode

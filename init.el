@@ -25,6 +25,7 @@
 (require 'init-haskell)
 (require 'init-helm)
 (require 'init-java)
+(require 'init-latex)
 (require 'init-markdown)
 (require 'init-multiple-cursors)
 (require 'init-mutant)
