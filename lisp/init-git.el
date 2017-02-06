@@ -3,7 +3,7 @@
 
 (global-set-key (kbd "C-c g g") 'magit-status)
 (global-set-key (kbd "C-c g c") 'magit-checkout)
-(global-set-key (kbd "C-c g b") 'magit-branch-manager)
+(global-set-key (kbd "C-c g b") 'magit-show-refs-popup)
 (global-set-key (kbd "C-c g f") 'magit-log-buffer-file)
 (global-set-key (kbd "C-c g t") 'git-timemachine)
 (global-set-key (kbd "C-c g l") 'vc-annotate)
