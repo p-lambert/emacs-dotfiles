@@ -33,12 +33,18 @@
          "* TODO Learn about =%?= :study:\n%U\n" :clock-resume t)
         ))
 
+;; agenda displays configurations
 (setq org-agenda-prefix-format
       `((agenda . " %i %?-12t% s")
        (timeline . "  % s")
        (todo . " %i")
        (tags . " %i %-12:c")
        (search . " %i %-12:c")))
+
+;; custom agenda commands
+(setq org-agenda-custom-commands
+      '(("p" todo :ALL
+         ((org-agenda-files (list org-default-notes-file))))))
 
 (require 'init-org-code)
 (require 'init-org-files)
