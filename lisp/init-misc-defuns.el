@@ -20,4 +20,17 @@
     (isearch-forward nil 1)
     (isearch-yank-string str)))
 
+(defun custom/occur ()
+  "Call `occur' with a sane default."
+  (interactive)
+  (push (if (region-active-p)
+            (buffer-substring-no-properties
+             (region-beginning)
+             (region-end))
+          (let ((sym (thing-at-point 'symbol)))
+            (when (stringp sym)
+              (regexp-quote sym))))
+        regexp-history)
+  (call-interactively 'occur))
+
 (provide 'init-misc-defuns)

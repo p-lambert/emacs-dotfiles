@@ -14,7 +14,6 @@
   (cons key (lookup-key (current-global-map) (kbd key))))
 
 ;; movement and editing
-(global-set-key (kbd "M-s") 'forward-word)
 (global-set-key (kbd "M-n") (lambda () (interactive) (next-line 5)))
 (global-set-key (kbd "M-p") (lambda () (interactive) (previous-line 5)))
 (global-set-key (kbd "C-<return>") 'custom/insert-new-line)
@@ -55,6 +54,7 @@
 (global-set-key (kbd "C-h C-d") 'dash-at-point)
 (global-set-key (kbd "C-c w") 'global-whitespace-mode)
 (global-set-key (kbd "C-c 8") 'custom/search-asterisk)
+(global-set-key (kbd "M-s") 'custom/occur)
 (global-set-key (kbd "M-e") 'ignore)
 (global-set-key (kbd "s-n") 'ignore)
 (global-set-key (kbd "C-z") 'ignore)
