@@ -41,6 +41,7 @@
 (global-set-key (kbd "C-x 3") 'custom/hsplit-last-buffer)
 (global-set-key (kbd "C-x 3") 'custom/hsplit-last-buffer)
 (global-set-key (kbd "C-x 4") 'custom/toggle-split)
+(global-set-key (kbd "C-x C-n") 'helm-bookmarks)
 (global-set-key (kbd "C-c -") 'custom/swap-buffers-in-windows)
 (global-set-key (kbd "C-x =") 'balance-windows)
 (global-set-key (kbd "C-l") 'previous-buffer)
