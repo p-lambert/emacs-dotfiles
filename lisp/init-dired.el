@@ -23,9 +23,16 @@
       (search-forward clean-name)
       (backward-word))))
 
+(defun custom/dired-buffer (open-in-split-p)
+  (interactive "P")
+  (if open-in-split-p
+      (dired-jump-other-window)
+    (dired-jump)))
+
 (define-key dired-mode-map (kbd "RET") 'custom/dired-open)
 (define-key dired-mode-map (kbd "C-l") 'dired-up-directory)
 (define-key dired-mode-map (kbd "c") 'custom/dired-create-file)
+(global-set-key (kbd "C-x C-j") 'custom/dired-buffer)
 
 ;; disable buffer trail left by directory navigation
 (put 'dired-find-alternate-file 'disabled nil)
