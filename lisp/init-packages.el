@@ -19,6 +19,8 @@
     gist
     git-timemachine
     guide-key
+    go-mode
+    gotest
     haskell-mode
     helm
     helm-bundle-show
