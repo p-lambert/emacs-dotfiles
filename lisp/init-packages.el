@@ -49,6 +49,7 @@
     yasnippet
     ;; themes
     atom-one-dark-theme
+    doom-themes
     flatui-theme
     )
   "A list of packages to be installed at application launch.")

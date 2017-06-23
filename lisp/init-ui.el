@@ -35,7 +35,12 @@
 
 ;; theme
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes"))
-(load-theme 'dracula t)
+
+(setq doom-themes-enable-bold t
+      doom-themes-enable-italic t)
+
+(load-theme 'doom-one t)
+
 
 ;; fonts
 (set-default-font "Fira Mono 14")
