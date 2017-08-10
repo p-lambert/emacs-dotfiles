@@ -59,6 +59,7 @@
 (global-set-key (kbd "M-e") 'ignore)
 (global-set-key (kbd "s-n") 'ignore)
 (global-set-key (kbd "C-z") 'ignore)
+(global-set-key (kbd "C-x C-c") 'ignore)
 
 ;; set a custom keybinding for toggling binding
 (global-set-key (kbd "C-M-&") 'override-global-mode)
