@@ -19,7 +19,6 @@
 (setq whitespace-style
       '(face
         trailing
-        tabs
         identation::space
         lines-tail))
 
