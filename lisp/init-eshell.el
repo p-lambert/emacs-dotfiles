@@ -22,8 +22,11 @@
 
 (defun custom/eshell-clear ()
   "Clear the eshell buffer."
-  (let ((inhibit-read-only t))
-    (erase-buffer)
-    (eshell-send-input)))
+  (interactive)
+  (eshell/clear t)
+  (eshell-send-input))
+
+(add-hook 'eshell-mode-hook
+          (lambda () (define-key eshell-mode-map (kbd "s-k") 'custom/eshell-clear)))
 
 (provide 'init-eshell)
