@@ -1,4 +1,5 @@
 (require 'dired)
+(require 'dired-x)
 (require 's)
 (require 'f)
 
@@ -29,23 +30,22 @@
       (dired-jump-other-window)
     (dired-jump)))
 
-(define-key dired-mode-map (kbd "RET") 'custom/dired-open)
-(define-key dired-mode-map (kbd "C-l") 'dired-up-directory)
-(define-key dired-mode-map (kbd "c") 'custom/dired-create-file)
-(global-set-key (kbd "C-x C-j") 'custom/dired-buffer)
-
-;; disable buffer trail left by directory navigation
-(put 'dired-find-alternate-file 'disabled nil)
-
-;; use GNU ls for dired
-(setq insert-directory-program "gls")
-
 ;; always suggest custom/dired-default-directory
 (defun custom/dired ()
   (interactive)
   (let ((default-directory custom/dired-default-directory))
     (call-interactively 'dired)))
 
+(define-key dired-mode-map (kbd "RET") 'custom/dired-open)
+(define-key dired-mode-map (kbd "C-l") 'dired-up-directory)
+(define-key dired-mode-map (kbd "c") 'custom/dired-create-file)
+(global-set-key (kbd "C-x C-j") 'custom/dired-buffer)
 (global-set-key (kbd "C-x d") 'custom/dired)
+
+;; disable buffer trail left by directory navigation
+(put 'dired-find-alternate-file 'disabled nil)
+
+;; use GNU ls for dired
+(setq insert-directory-program "gls")
 
 (provide 'init-dired)
