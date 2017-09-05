@@ -29,6 +29,7 @@
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-M-f") 'forward-sexp)
 (global-set-key (kbd "C-M-b") 'backward-sexp)
+(global-set-key (kbd "s-g") 'goto-line)
 
 ;; window and buffer manipulation
 (global-set-key (kbd "M-o") 'other-window)
