@@ -49,10 +49,6 @@
         (font . "Fira Mono 14")
         (vertical-scroll-bars . nil)))
 
-;; smaller elements
-(dolist (face '(linum mode-line mode-line-inactive linum-highlight-face))
-  (set-face-attribute face nil :font "Fira Mono 12"))
-
 ;; modeline
 (defun branch-name ()
   ;; for powerline patched fonts, the unicode char \ue0a0 is cooler!
