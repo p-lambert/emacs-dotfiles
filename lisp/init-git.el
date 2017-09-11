@@ -25,8 +25,7 @@
 (defun custom/git-branches ()
   (projectile-with-default-dir (projectile-project-root)
     (--> (shell-command-to-string "/usr/local/bin/git branch")
-         (s-split "\n" it t)
-         (--map (substring it 2) it))))
+         (s-split "\n" it t))))
 
 (defun custom/helm-git-branches ()
   "Display a list of git branches"
@@ -37,7 +36,8 @@
 (defun custom/helm-git-branches-source ()
   (helm-build-sync-source (format "Git Branches [%s]" (projectile-project-name))
     :candidates (custom/git-branches)
-    :action '(("Switch to branch" . magit-checkout))))
+    :action '(("Switch to branch" .
+               (lambda (name) (magit-checkout (substring name 2)))))))
 
 (global-set-key (kbd "C-c g m") 'custom/branch-changelog)
 (global-set-key (kbd "C-c g b") 'custom/helm-git-branches)
