@@ -26,7 +26,17 @@
   (eshell/clear t)
   (eshell-send-input))
 
-(add-hook 'eshell-mode-hook
-          (lambda () (define-key eshell-mode-map (kbd "s-k") 'custom/eshell-clear)))
+(defun custom/eshell-beginning-of-line ()
+  (interactive)
+  (let ((previous (point)))
+    (eshell-bol)
+    (when (= previous (point))
+      (beginning-of-line))))
+
+(defun custom/define-eshell-keymaps ()
+  (define-key eshell-mode-map (kbd "C-a") 'custom/eshell-beginning-of-line)
+  (define-key eshell-mode-map (kbd "s-k") 'custom/eshell-clear))
+
+(add-hook 'eshell-mode-hook 'custom/define-eshell-keymaps)
 
 (provide 'init-eshell)
