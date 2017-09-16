@@ -10,6 +10,7 @@
       org-startup-indented t
       org-agenda-compact-blocks t
       org-agenda-skip-scheduled-if-done t
+      org-ellipsis " ↴"
       org-agenda-use-time-grid nil)
 
 ;; custom tag preset
@@ -54,8 +55,8 @@
 (require 'init-org-files)
 (require 'init-org-defuns)
 
-(global-set-key (kbd "C-c [") 'custom/helm-org-files)
-(global-set-key (kbd "C-c ]") 'custom/org-open-project-file)
+(global-set-key (kbd "C-c ]") 'custom/helm-org-files)
+(global-set-key (kbd "C-c [") 'custom/org-open-project-file)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c C-a") 'org-agenda-list)
@@ -65,8 +66,8 @@
 (define-key org-mode-map (kbd "C-c C-k") 'custom/copy-line)
 (define-key org-mode-map (kbd "C-c f") 'org-attach-open-in-emacs)
 (define-key org-mode-map (kbd "C-x C-n") 'custom/org-toggle-narrowing)
-(define-key org-mode-map (kbd "C-c [") nil)
-(define-key org-mode-map (kbd "C-c ]") 'previous-buffer)
+(define-key org-mode-map (kbd "C-c [") 'previous-buffer)
+(define-key org-mode-map (kbd "C-c ]") 'custom/helm-org-files)
 (define-key org-mode-map (kbd "C-M-k") 'org-cut-subtree)
 
 (provide 'init-org)
