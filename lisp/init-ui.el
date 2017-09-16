@@ -36,7 +36,7 @@
 ;; theme
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes"))
 
-(load-theme 'dracula t)
+(load-theme 'challenger-deep t)
 
 ;; fonts
 (set-default-font "Fira Mono 14")
