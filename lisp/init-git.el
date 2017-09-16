@@ -24,7 +24,7 @@
 
 (defun custom/git-branches ()
   (projectile-with-default-dir (projectile-project-root)
-    (--> (shell-command-to-string "/usr/local/bin/git branch")
+    (--> (shell-command-to-string "/usr/bin/env git branch")
          (s-split "\n" it t))))
 
 (defun custom/helm-git-branches ()
