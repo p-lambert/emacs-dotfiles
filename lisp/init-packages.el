@@ -33,6 +33,7 @@
     multiple-cursors
     mutant
     org
+    org-bullets
     projectile
     rainbow-delimiters
     rbenv

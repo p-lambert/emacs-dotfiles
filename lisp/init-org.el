@@ -1,5 +1,6 @@
 (require 'org)
 (require 'org-attach)
+(require 'org-bullets)
 
 (defvar custom/org-dir "~/Dropbox/Org")
 
@@ -45,6 +46,9 @@
 (setq org-agenda-custom-commands
       '(("p" todo :ALL
          ((org-agenda-files (list org-default-notes-file))))))
+
+;; enable bullets
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 (require 'init-org-code)
 (require 'init-org-files)
