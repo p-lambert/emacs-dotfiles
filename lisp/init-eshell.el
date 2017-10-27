@@ -33,6 +33,13 @@
     (when (= previous (point))
       (beginning-of-line))))
 
+(defun custom/open-eshell ()
+  (if (projectile-project-p)
+      (projectile-run-eshell)
+    (eshell)))
+
+(global-set-key (kbd "C-c e") 'custom/open-eshell)
+
 (defun custom/define-eshell-keymaps ()
   (define-key eshell-mode-map (kbd "C-a") 'custom/eshell-beginning-of-line)
   (define-key eshell-mode-map (kbd "s-k") 'custom/eshell-clear))

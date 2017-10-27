@@ -5,7 +5,6 @@
 
 (global-set-key (kbd "C-x f") 'helm-projectile)
 (global-set-key (kbd "C-x C-d") 'projectile-dired)
-(global-set-key (kbd "C-c e") 'projectile-run-eshell)
 
 (defvar custom/projectile-blacklist '(".gems" "log" "tmp" "vendor"))
 
