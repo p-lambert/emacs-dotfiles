@@ -34,6 +34,7 @@
       (beginning-of-line))))
 
 (defun custom/open-eshell ()
+  (interactive)
   (if (projectile-project-p)
       (projectile-run-eshell)
     (eshell)))
@@ -42,7 +43,8 @@
 
 (defun custom/define-eshell-keymaps ()
   (define-key eshell-mode-map (kbd "C-a") 'custom/eshell-beginning-of-line)
-  (define-key eshell-mode-map (kbd "s-k") 'custom/eshell-clear))
+  (define-key eshell-mode-map (kbd "s-k") 'custom/eshell-clear)
+  (define-key eshell-mode-map (kbd "C-c e") 'previous-buffer))
 
 (add-hook 'eshell-mode-hook 'custom/define-eshell-keymaps)
 
