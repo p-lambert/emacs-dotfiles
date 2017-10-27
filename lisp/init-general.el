@@ -19,6 +19,8 @@
  require-final-newline t
  ;; set file for custom variables
  custom-file (expand-file-name "custom.el" user-emacs-directory)
+ ;; use consistent syntax on regexp-builder
+ reb-re-syntax 'string
  )
 
 ;; enable protected commands
