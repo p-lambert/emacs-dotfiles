@@ -34,6 +34,7 @@
     mutant
     org
     org-bullets
+    perspective
     projectile
     rainbow-delimiters
     rbenv

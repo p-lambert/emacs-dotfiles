@@ -19,4 +19,9 @@
 (dolist (ignored custom/projectile-blacklist)
         (add-to-list 'projectile-globally-ignored-directories ignored))
 
+;; add `perspective` integration
+(require 'perspective)
+(persp-mode)
+(require 'persp-projectile)
+
 (provide 'init-projectile)
