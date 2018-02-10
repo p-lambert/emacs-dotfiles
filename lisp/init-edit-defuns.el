@@ -77,4 +77,11 @@ regions's beginning, ending and extension in lines."
   "Removes newline character at the the end of STR."
   (if (string-match "\n$" str) (substring str 0 -1) str))
 
+(defun custom/open-file-from-clipboard ()
+  "Open the file/directory present in the clipboard"
+  (interactive)
+  (let ((destination (current-kill 0 't)))
+    (when (file-exists-p destination)
+        (find-file destination))))
+
 (provide 'init-edit-defuns)

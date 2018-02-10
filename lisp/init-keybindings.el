@@ -30,6 +30,7 @@
 (global-set-key (kbd "C-M-f") 'forward-sexp)
 (global-set-key (kbd "C-M-b") 'backward-sexp)
 (global-set-key (kbd "s-g") 'goto-line)
+(global-set-key (kbd "s-p") 'custom/open-file-from-clipboard)
 
 ;; window and buffer manipulation
 (global-set-key (kbd "M-o") 'other-window)
