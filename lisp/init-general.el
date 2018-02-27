@@ -1,8 +1,14 @@
-;; import PATH environment variable
-(let ((path (shell-command-to-string ". ~/.bashrc; echo -n $PATH")))
-  (setenv "PATH" path)
-  (setq exec-path
-        (append (split-string-and-unquote path ":") exec-path)))
+(defun custom/import-env-var (name)
+  (let* ((cmd (format ". ~/.bashrc; echo -n $%s" name))
+         (var (shell-command-to-string cmd)))
+    (setenv name var)))
+
+(custom/import-env-var "PATH")
+(custom/import-env-var "GOPATH")
+
+;; setup PATH
+(setq exec-path
+      (append (split-string-and-unquote (getenv "PATH") ":") exec-path))
 
 (setq
  ;; default directory
