@@ -13,8 +13,7 @@
   (interactive)
   (if (s-suffix? "_test.go" buffer-file-name)
       (go-test-current-file)
-    (let ((command (format "go run %s" buffer-file-name)))
-      (compile command))))
+    (quickrun)))
 
 (define-key go-mode-map (kbd "C-c 0") 'custom/go-run)
 (define-key go-mode-map (kbd "C-c , a") 'go-test-current-project)

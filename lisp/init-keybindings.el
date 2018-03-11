@@ -62,6 +62,7 @@
 (global-set-key (kbd "s-n") 'ignore)
 (global-set-key (kbd "C-z") 'ignore)
 (global-set-key (kbd "C-x C-c") 'ignore)
+(global-set-key (kbd "C-c 0") 'quickrun)
 
 ;; set a custom keybinding for toggling binding
 (global-set-key (kbd "C-M-&") 'override-global-mode)

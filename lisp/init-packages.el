@@ -37,6 +37,7 @@
     org-bullets
     perspective
     projectile
+    quickrun
     rainbow-delimiters
     rbenv
     request
