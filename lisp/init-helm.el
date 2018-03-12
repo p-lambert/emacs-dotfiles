@@ -1,8 +1,10 @@
 (require 'helm-config)
+(require 'helm-ag)
 
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "s-f") 'helm-do-ag)
 
 (setq helm-quick-update t
       helm-buffers-fuzzy-matching t

@@ -23,6 +23,7 @@
     gotest
     haskell-mode
     helm
+    helm-ag
     helm-bundle-show
     helm-flyspell
     helm-projectile
