@@ -11,7 +11,11 @@
 
 (setq
  projectile-completion-system 'helm
- projectile-switch-project-action 'projectile-dired)
+ projectile-switch-project-action 'custom/projectile-switch-action)
+
+(defun custom/projectile-switch-action ()
+  (projectile-dired)
+  (delete-other-windows))
 
 (setq helm-projectile-sources-list
       '(helm-source-projectile-buffers-list helm-source-projectile-files-list))
