@@ -1,7 +1,10 @@
 (require 'magit)
+(require 'magit-gh-pulls)
 (require 'git-timemachine)
 (require 'helm)
 (require 's)
+
+(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
 
 (global-set-key (kbd "C-c g g") 'magit-status)
 (global-set-key (kbd "C-c g c") 'magit-checkout)

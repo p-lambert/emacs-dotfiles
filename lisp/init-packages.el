@@ -29,6 +29,7 @@
     hlinum
     inf-ruby
     magit
+    magit-gh-pulls
     markdown-mode
     multiple-cursors
     mutant
