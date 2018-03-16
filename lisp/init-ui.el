@@ -1,3 +1,5 @@
+(require 's)
+
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -50,9 +52,13 @@
         (vertical-scroll-bars . nil)))
 
 ;; modeline
-(defun branch-name ()
+(defun custom/branch-name ()
   ;; for powerline patched fonts, the unicode char \ue0a0 is cooler!
-  (when vc-mode (concat "@ " (substring vc-mode 5))))
+  (cond (vc-mode (concat "@ " (substring vc-mode 5)))
+        ((projectile-project-p)
+         (let* ((git-branch-cmd "/usr/bin/env git symbolic-ref --short HEAD")
+                (branch-name (shell-command-to-string git-branch-cmd)))
+           (concat "@ " (s-chomp branch-name))))))
 
 (setq-default mode-line-format
               (list
@@ -62,11 +68,11 @@
                "  "
                (propertize "%b" 'face 'bold)
                "  |  "
-               'mode-name
-               "  |  "
                '(:eval (projectile-project-name))
                " "
-               '(:eval (branch-name))
+               '(:eval (custom/branch-name))
+               "  |  "
+               'mode-name
                "  |  "
                "%p (%l:%c)"
                ))
