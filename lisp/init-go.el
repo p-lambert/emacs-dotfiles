@@ -1,6 +1,7 @@
 (require 'go-mode)
 (require 'gotest)
 (require 's)
+(require 'f)
 
 ;; requires go get -u golang.org/x/tools/cmd/goimports
 (setq gofmt-command "goimports")
@@ -14,6 +15,17 @@
   (if (s-suffix? "_test.go" buffer-file-name)
       (go-test-current-file)
     (quickrun)))
+
+(defvar custom/go-test-use-vagrant 't)
+
+(defun custom/go-test-wrapper (orig-fun &rest args)
+  (let ((pwd (f-relative default-directory (getenv "GOPATH")))
+        (orig-cmd (apply orig-fun args)))
+    (if custom/go-test-use-vagrant
+        (format "ssh vagrant -t \"bash -l -c \\\"cd go/%s; %s\\\"\"" pwd orig-cmd)
+      cmd)))
+
+(advice-add 'go-test--get-program :around #'custom/go-test-wrapper)
 
 (define-key go-mode-map (kbd "C-c 0") 'custom/go-run)
 (define-key go-mode-map (kbd "C-c , a") 'go-test-current-project)
