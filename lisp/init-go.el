@@ -25,11 +25,20 @@
         (format "ssh vagrant -t \"bash -l -c \\\"cd go/%s; %s\\\"\"" pwd orig-cmd)
       cmd)))
 
+(defun custom/go-function-callers ()
+  (interactive)
+  (save-excursion
+    (go-goto-function-name)
+    (let ((func-name (format "%s\\(.*\\)" (thing-at-point 'symbol))))
+      (projectile-ag func-name 't))))
+
 (advice-add 'go-test--get-program :around #'custom/go-test-wrapper)
 
 (define-key go-mode-map (kbd "C-c 0") 'custom/go-run)
 (define-key go-mode-map (kbd "C-c , a") 'go-test-current-project)
 (define-key go-mode-map (kbd "C-c , f") 'go-test-current-file)
+(define-key go-mode-map (kbd "C-c , .") 'go-test-current-test)
+(define-key go-mode-map (kbd "C-c C-f c") 'custom/go-function-callers)
 (define-key go-mode-map (kbd "C-c ? .") 'godoc-at-point)
 (define-key go-mode-map (kbd "C-c ? p") (lambda () (interactive) (godoc (symbol-name (symbol-at-point)))))
 
