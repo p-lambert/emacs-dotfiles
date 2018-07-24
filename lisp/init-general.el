@@ -5,6 +5,8 @@
 
 (custom/import-env-var "PATH")
 (custom/import-env-var "GOPATH")
+(custom/import-env-var "DATADOG_ROOT")
+(custom/import-env-var "GITLAB_TOKEN")
 
 ;; setup PATH
 (setq exec-path
