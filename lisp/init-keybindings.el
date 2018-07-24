@@ -69,6 +69,7 @@
 (global-set-key (kbd "s-}") 'elscreen-next)
 (global-set-key (kbd "s-t") 'elscreen-create)
 (global-set-key (kbd "s-w") 'elscreen-kill)
+(global-set-key (kbd "s-r") 'elscreen-screen-nickname)
 
 ;; set a custom keybinding for toggling binding
 (global-set-key (kbd "C-M-&") 'override-global-mode)
