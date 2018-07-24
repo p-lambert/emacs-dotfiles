@@ -74,7 +74,7 @@
                "  |  "
                'mode-name
                "  |  "
-               "%p (%l:%c)"
+               "%l:%c"
                ))
 
 ;; default window size
