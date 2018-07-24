@@ -15,8 +15,8 @@
 ;; disable magit startup message
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-;; make pull --rebase default
-(setq magit-pull-arguments '("--rebase"))
+(setq magit-pull-arguments '("--rebase" "--no-tags"))
+(setq magit-fetch-arguments '("--no-tags" "--prune"))
 
 (defun custom/branch-changelog ()
   (interactive)
