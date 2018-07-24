@@ -64,6 +64,12 @@
 (global-set-key (kbd "C-x C-c") 'ignore)
 (global-set-key (kbd "C-c 0") 'quickrun)
 
+;; elscreen
+(global-set-key (kbd "s-{") 'elscreen-previous)
+(global-set-key (kbd "s-}") 'elscreen-next)
+(global-set-key (kbd "s-t") 'elscreen-create)
+(global-set-key (kbd "s-w") 'elscreen-kill)
+
 ;; set a custom keybinding for toggling binding
 (global-set-key (kbd "C-M-&") 'override-global-mode)
 ;; ensure precedence of selected keybindings

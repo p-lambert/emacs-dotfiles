@@ -68,6 +68,8 @@
                "  "
                (propertize "%b" 'face 'bold)
                "  |  "
+               '(:eval (custom/elscreen-mode-line))
+               "  |  "
                '(:eval (projectile-project-name))
                " "
                '(:eval (custom/branch-name))

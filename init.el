@@ -16,6 +16,7 @@
 (require 'init-comint)
 (require 'init-company)
 (require 'init-dired)
+(require 'init-elscreen)
 (require 'init-eshell)
 (require 'init-expand-region)
 (require 'init-git)
@@ -39,5 +40,5 @@
 (require 'init-whitespace)
 (require 'init-yas)
 
-(require 'init-keybindings)
 (require 'init-ui)
+(require 'init-keybindings)

@@ -14,6 +14,7 @@
     company
     dash
     dash-at-point
+    elscreen
     expand-region
     f
     gist
