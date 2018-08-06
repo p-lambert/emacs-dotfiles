@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: gkey
+# key: gkey
+# --
+(global-key-set (kbd "${1:C-c}") '${2:bar})
+$0

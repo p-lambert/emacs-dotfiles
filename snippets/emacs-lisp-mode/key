@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: key
+# key: key
+# --
+(define-key ${1:foo}-mode-map (kbd "${2:C-c}") '${3:bar})
+$0
