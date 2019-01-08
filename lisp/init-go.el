@@ -32,9 +32,16 @@
     (let ((func-name (format "%s\\(.*\\)" (thing-at-point 'symbol))))
       (projectile-ag func-name 't))))
 
+(defun custom/go-find-test-or-implementation (other-window-p)
+  (interactive "P")
+  (if other-window-p
+      (projectile-find-implementation-or-test-other-window)
+    (projectile-toggle-between-implementation-and-test)))
+
 (advice-add 'go-test--get-program :around #'custom/go-test-wrapper)
 
 (define-key go-mode-map (kbd "C-c 0") 'custom/go-run)
+(define-key go-mode-map (kbd "C-c p t") 'custom/go-find-test-or-implementation)
 (define-key go-mode-map (kbd "C-c , a") 'go-test-current-project)
 (define-key go-mode-map (kbd "C-c , f") 'go-test-current-file)
 (define-key go-mode-map (kbd "C-c , .") 'go-test-current-test)
