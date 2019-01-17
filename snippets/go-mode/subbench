@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: subbench
+# key: subbench
+# --
+b.Run("$1", func(b *testing.B) \{
+    for i := 0; i < b.N; i++ \{
+        $0
+    }
+}
