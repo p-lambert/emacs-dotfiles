@@ -5,6 +5,7 @@
 (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "s-f") 'custom/helm-interactive-search)
+(global-set-key (kbd "C-h a") 'helm-apropos)
 
 (setq helm-quick-update t
       helm-buffers-fuzzy-matching t
