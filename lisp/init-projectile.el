@@ -5,6 +5,9 @@
 
 (global-set-key (kbd "C-x f") 'helm-projectile)
 (global-set-key (kbd "C-x C-d") 'projectile-dired)
+(global-set-key (kbd "C-c p p") 'projectile-switch-project)
+(global-set-key (kbd "C-c p d") 'helm-projectile-find-dir)
+(global-set-key (kbd "C-c p s") 'projectile-ag)
 
 (defvar custom/projectile-blacklist '(".gems" "log" "tmp" "vendor"))
 
