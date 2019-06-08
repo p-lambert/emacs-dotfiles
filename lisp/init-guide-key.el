@@ -1,6 +1,6 @@
 (require 'guide-key)
 
-(setq guide-key/guide-key-sequence '("C-x r" "C-c"))
+(setq guide-key/guide-key-sequence '("C-x r" "C-c" "C-x 4"))
 
 ;; enable guide-key
 (guide-key-mode t)
