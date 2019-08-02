@@ -42,4 +42,7 @@
 (advice-add 'elscreen-screen-nickname :after
             (lambda (&rest _) (message (custom/elscreen-message))))
 
+(advice-add 'elscreen-kill :before
+            (lambda (&rest _) (and (projectile-project-p) (projectile-kill-buffers))))
+
 (provide 'init-elscreen)
