@@ -92,6 +92,15 @@
        (s-chop-prefix custom/go-src)
        (s-chop-prefix "/")))
 
+(defun custom/go-open-package-documentation ()
+  (interactive)
+  (push-mark)
+  (when (looking-at "\"")
+    (forward-char))
+  (let ((pkg (read-string "Open documentation for package: " (thing-at-point 'filename t))))
+    (pop-global-mark)
+    (browse-url (concat custom/godoc-url "/" pkg))))
+
 (advice-add 'go-test--get-program :around #'custom/go-test-wrapper)
 
 (define-key go-mode-map (kbd "C-c 0") 'custom/go-run)
@@ -102,5 +111,6 @@
 (define-key go-mode-map (kbd "C-c C-f c") 'custom/go-function-callers)
 (define-key go-mode-map (kbd "C-c ? .") 'godoc-at-point)
 (define-key go-mode-map (kbd "C-c ? d") 'custom/go-open-in-godoc)
+(define-key go-mode-map (kbd "C-c ? p") 'custom/go-open-package-documentation)
 
 (provide 'init-go)
