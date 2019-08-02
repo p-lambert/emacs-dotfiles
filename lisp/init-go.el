@@ -6,7 +6,12 @@
 ;; requires go get -u golang.org/x/tools/cmd/goimports
 (setq gofmt-command "goimports")
 ;; requires go get -u github.com/zmb3/gogetdoc
-(setq godoc-at-point-function #'godoc-gogetdoc)
+(setq godoc-at-point-function #'godoc-and-godef)
+(setq godoc-and-godef-command "go doc")
+
+(defvar custom/go-path-src (f-join (getenv "GOPATH") "src"))
+(defvar custom/go-src "/usr/local/go/src")
+(defvar custom/godoc-url "https://godoc.org")
 
 (add-hook 'before-save-hook 'gofmt-before-save)
 
@@ -38,6 +43,55 @@
       (projectile-find-implementation-or-test-other-window)
     (projectile-toggle-between-implementation-and-test)))
 
+(defun custom/go-open-in-godoc (point)
+  (interactive "d")
+  (-let [(pkg name field-or-method) (custom/go-definition-info point)]
+    (when (and pkg name)
+      (->> (concat custom/godoc-url "/" pkg "#" name "." field-or-method)
+           (s-chop-suffix ".")
+           (browse-url)))))
+
+(defun custom/go-definition-info (point)
+  (let* ((name) ;; Can be either type, function, const or variable name
+         (field-or-method)
+         (addr (split-string (car (godef--call point)) ":"))
+         (file (car addr))
+         (line (nth 1 addr))
+         (pkg (custom/go-package-from-file file)))
+    (with-temp-buffer
+      (insert-file-contents file)
+      (goto-line (string-to-number line))
+      (cond
+       ;; type declaration
+       ((looking-at "type[[:blank:]]+\\([[:alnum:]]+\\)")
+        (setq name (match-string 1)))
+       ;; method definition
+       ((looking-at "func (.*?\\([[:alnum:]]+\\)) \\([[:alnum:]]+\\)")
+        (setq name (match-string 1))
+        (setq field-or-method (match-string 2)))
+       ;; function defintion
+       ((looking-at "func \\([[:alnum:]]+\\)")
+        (setq name (match-string 1)))
+       ;; variable declaration
+       ((or (looking-at "var \\([[:alnum:]]+\\) [[:alnum:]]+ =") ;; variable declaration
+            (looking-at "[[:blank:]]*\\([[:alnum:]]+\\)[[:blank:]]+[[:alnum:]]+[[:blank:]]+=")
+            (looking-at "[[:blank:]]*\\([[:alnum:]]+\\)[[:blank:]]*="))
+        (setq name (match-string 1)))
+       ;; interface method
+       ((looking-at "[[:blank:]]*\\([[:alnum:]]+\\)(")
+        (setq field-or-method (match-string 1))
+        (search-backward-regexp "^type")
+        (forward-to-word 1)
+        (setq name (thing-at-point 'word)))))
+    (list pkg name field-or-method)))
+
+(defun custom/go-package-from-file (file)
+  (->> file
+       (f-dirname)
+       (s-chop-prefix custom/go-path-src)
+       (s-chop-prefix custom/go-src)
+       (s-chop-prefix "/")))
+
 (advice-add 'go-test--get-program :around #'custom/go-test-wrapper)
 
 (define-key go-mode-map (kbd "C-c 0") 'custom/go-run)
@@ -47,6 +101,6 @@
 (define-key go-mode-map (kbd "C-c , .") 'go-test-current-test)
 (define-key go-mode-map (kbd "C-c C-f c") 'custom/go-function-callers)
 (define-key go-mode-map (kbd "C-c ? .") 'godoc-at-point)
-(define-key go-mode-map (kbd "C-c ? p") (lambda () (interactive) (godoc (symbol-name (symbol-at-point)))))
+(define-key go-mode-map (kbd "C-c ? d") 'custom/go-open-in-godoc)
 
 (provide 'init-go)
