@@ -16,13 +16,19 @@
  projectile-switch-project-action 'custom/projectile-switch-action)
 
 (defun custom/projectile-switch-action ()
-  (let ((screen (custom/elscreen-from-nickname (projectile-project-name))))
-    (if screen
-        (elscreen-goto screen)
-      (elscreen-clone)
-      (elscreen-screen-nickname (projectile-project-name))
-      (projectile-dired)
-      (delete-other-windows))))
+  (let ((project-screen (custom/elscreen-from-nickname (projectile-project-name)))
+        (current-screen-name (elscreen-get-screen-nickname (elscreen-get-current-screen))))
+    (cond ((string-equal current-screen-name (projectile-project-name))
+           (projectile-dired))
+          (project-screen (progn
+                    (elscreen-goto project-screen)
+                    (message (custom/elscreen-message))))
+          (t (progn
+               (elscreen-clone)
+               (elscreen-screen-nickname (projectile-project-name))
+               (projectile-dired)
+               (delete-other-windows)
+               )))))
 
 (setq helm-projectile-sources-list
       '(helm-source-projectile-buffers-list helm-source-projectile-files-list))
