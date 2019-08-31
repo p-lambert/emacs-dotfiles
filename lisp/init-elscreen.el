@@ -30,7 +30,7 @@
     (mapconcat 'custom/elscreen-name screen-list " | ")))
 
 (defun custom/elscreen-from-nickname (nickname)
-  (car (rassoc (projectile-project-name)
+  (car (rassoc nickname
                (elscreen-get-screen-to-name-alist))))
 
 (defun custom/advice-switch-to-buffer (buffer &rest _)
