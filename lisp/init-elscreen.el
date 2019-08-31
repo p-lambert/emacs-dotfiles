@@ -1,11 +1,14 @@
 (require 'elscreen)
 
+(defvar custom/elscreen-misc "*misc*"
+  "The name of the screen used for all non-projectile buffers.")
+
 ;; hide tabs
 (setq elscreen-display-tab nil)
 
+;; initialize
 (elscreen-start)
-
-;; custom keybindings defined in init-keybindings.el
+(elscreen-screen-nickname custom/elscreen-misc)
 
 (defun custom/elscreen-mode-line ()
   (let ((screen-list (sort (elscreen-get-screen-list) '<))
@@ -36,13 +39,15 @@
 (defun custom/advice-switch-to-buffer (buffer &rest _)
   "Ensures buffer is opened on the screen matching project name, if available."
   (unless custom/disable-buffer-switch-advice
-    (when (projectile-project-p)
-      (with-current-buffer buffer
+    (with-current-buffer buffer
+      (if (projectile-project-p)
         (let* ((project-name (projectile-project-name))
                (target-screen (custom/elscreen-from-nickname project-name)))
           (when target-screen
             (unless (eq target-screen (elscreen-get-current-screen))
-              (elscreen-goto target-screen))))))))
+              (elscreen-goto target-screen))))
+        ;; all non-projectile buffers should open in the same screen
+        (elscreen-goto (custom/elscreen-from-nickname custom/elscreen-misc))))))
 
 (dolist (fn '(elscreen-previous
               elscreen-next
