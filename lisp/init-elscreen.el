@@ -35,13 +35,14 @@
 
 (defun custom/advice-switch-to-buffer (buffer &rest _)
   "Ensures buffer is opened on the screen matching project name, if available."
-  (when (projectile-project-p)
-    (with-current-buffer buffer
-      (let* ((project-name (projectile-project-name))
-             (target-screen (custom/elscreen-from-nickname project-name)))
-        (when target-screen
-          (unless (eq target-screen (elscreen-get-current-screen))
-            (elscreen-goto target-screen)))))))
+  (unless custom/disable-buffer-switch-advice
+    (when (projectile-project-p)
+      (with-current-buffer buffer
+        (let* ((project-name (projectile-project-name))
+               (target-screen (custom/elscreen-from-nickname project-name)))
+          (when target-screen
+            (unless (eq target-screen (elscreen-get-current-screen))
+              (elscreen-goto target-screen))))))))
 
 (dolist (fn '(elscreen-previous
               elscreen-next

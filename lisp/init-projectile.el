@@ -16,6 +16,7 @@
  projectile-switch-project-action 'custom/projectile-switch-action)
 
 (defun custom/projectile-switch-action ()
+  (setq custom/disable-buffer-switch-advice 't)
   (let ((project-screen (custom/elscreen-from-nickname (projectile-project-name)))
         (current-screen-name (elscreen-get-screen-nickname (elscreen-get-current-screen))))
     (cond ((string-equal current-screen-name (projectile-project-name))
@@ -27,8 +28,8 @@
                (elscreen-clone)
                (elscreen-screen-nickname (projectile-project-name))
                (projectile-dired)
-               (delete-other-windows)
-               )))))
+               (delete-other-windows)))))
+  (setq custom/disable-buffer-switch-advice nil))
 
 (setq helm-projectile-sources-list
       '(helm-source-projectile-buffers-list helm-source-projectile-files-list))
