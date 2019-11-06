@@ -3,6 +3,8 @@
 (defvar custom/elscreen-misc "*misc*"
   "The name of the screen used for all non-projectile buffers.")
 
+(defvar custom/disable-buffer-switch-advice nil)
+
 ;; hide tabs
 (setq elscreen-display-tab nil)
 
@@ -62,5 +64,10 @@
             (lambda (&rest _) (and (projectile-project-p) (projectile-kill-buffers))))
 
 (advice-add 'switch-to-buffer :before 'custom/advice-switch-to-buffer)
+
+(add-hook 'popwin:before-popup-hook
+          (lambda () (setq custom/disable-buffer-switch-advice 't)))
+(add-hook 'popwin:before-popup-hook
+          (lambda () (setq custom/disable-buffer-switch-advice nil)))
 
 (provide 'init-elscreen)
