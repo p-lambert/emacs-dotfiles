@@ -107,6 +107,12 @@
     (pop-global-mark)
     (browse-url (concat custom/godoc-url "/" pkg))))
 
+(defun custom/godef-jump (open-in-split-p)
+  (interactive "P")
+  (if open-in-split-p
+      (call-interactively 'godef-jump-other-window)
+    (call-interactively 'godef-jump)))
+
 (advice-add 'go-test--get-program :around #'custom/go-test-wrapper)
 
 (define-key go-mode-map (kbd "C-c 0") 'custom/go-run)
@@ -118,5 +124,6 @@
 (define-key go-mode-map (kbd "C-c ? .") 'godoc-at-point)
 (define-key go-mode-map (kbd "C-c ? d") 'custom/go-open-in-godoc)
 (define-key go-mode-map (kbd "C-c ? p") 'custom/go-open-package-documentation)
+(define-key go-mode-map (kbd "C-c C-j") 'custom/godef-jump)
 
 (provide 'init-go)
