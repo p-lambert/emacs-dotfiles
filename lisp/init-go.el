@@ -21,14 +21,20 @@
       (go-test-current-file)
     (quickrun)))
 
-(defvar custom/go-test-use-vagrant 't)
-
 (defun custom/go-test-wrapper (orig-fun &rest args)
   (let ((pwd (f-relative default-directory (getenv "GOPATH")))
-        (orig-cmd (apply orig-fun args)))
-    (if custom/go-test-use-vagrant
-        (format "ssh vagrant -t \"bash -l -c \\\"cd go/%s; %s\\\"\"" pwd orig-cmd)
-      cmd)))
+        (go-test-cmd (apply orig-fun args)))
+    ;; run test command in vagrant box, if needed
+    (if (and (boundp 'custom/vagrant-box) (boundp 'custom/vagrant-go-path))
+        (setq go-test-cmd (format "vagrant ssh %s -c \"bash -c \\\"cd %s/%s; %s\\\"\""
+                                  custom/vagrant-box custom/vagrant-go-path pwd go-test-cmd)))
+    ;; add special test arguments, if needed
+    (if (boundp 'custom/go-test-args)
+        (setq go-test-cmd (s-replace "go test" (concat "go test " custom/go-test-args) go-test-cmd)))
+    ;; run test command with sudo permissions, if needed
+    (if (bound-and-true-p custom/go-test-with-sudo)
+        (setq go-test-cmd (s-replace "go test" "sudo go test" go-test-cmd)))
+      go-test-cmd))
 
 (defun custom/go-function-callers ()
   (interactive)
