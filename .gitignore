@@ -16,6 +16,7 @@ auto-save-list/
 var/
 bookmarks
 custom.el
+network-security.data
 
 # Eshell
 eshell/
