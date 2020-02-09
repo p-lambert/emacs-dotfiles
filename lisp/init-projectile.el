@@ -13,7 +13,8 @@
 
 (setq
  projectile-completion-system 'helm
- projectile-switch-project-action 'custom/projectile-switch-action)
+ projectile-switch-project-action 'custom/projectile-switch-action
+ projectile-git-submodule-command nil)
 
 (defun custom/projectile-switch-action ()
   (setq custom/disable-buffer-switch-advice 't)
