@@ -92,11 +92,12 @@
     (list pkg name field-or-method)))
 
 (defun custom/go-package-from-file (file)
-  (->> file
-       (f-dirname)
-       (s-chop-prefix custom/go-path-src)
-       (s-chop-prefix custom/go-src)
-       (s-chop-prefix "/")))
+  (-as-> file x
+       (f-dirname x)
+       (s-chop-prefix custom/go-path-src x)
+       (s-chop-prefix custom/go-src x)
+       (car (s-split ".+?/vendor/" x 't))
+       (s-chop-prefix "/" x)))
 
 (defun custom/go-open-package-documentation ()
   (interactive)
