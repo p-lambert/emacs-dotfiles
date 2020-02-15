@@ -1,6 +1,6 @@
 (require 'f)
 (require 'projectile)
-(require 'helm)
+(require 'ivy)
 
 (defun custom/org-get-filenames ()
   (when (file-directory-p custom/org-dir)
@@ -20,17 +20,10 @@
          (default-file (custom/org-file-path (projectile-project-name))))
     (find-file (or try-link default-file))))
 
-;; create a helm buffer displaying all my .org files
-(defun custom/helm-org-files ()
-  "Display all files under `custom/org-dir` inside a helm buffer."
+;; create a ivy prompt displaying all my .org files
+(defun custom/ivy-org-files ()
   (interactive)
-  (helm :sources (custom/helm-org-files-source)
-        :buffer "*My Org Files*"))
-
-(defun custom/helm-org-files-source ()
-  (helm-build-sync-source "My Org Files"
-    :candidates (custom/org-get-filenames)
-    :action '(("Open file" .
-               (lambda (file) (find-file (custom/org-file-path file)))))))
+  (ivy-read "org notes: " (custom/org-get-filenames)
+            :action (lambda (file) (find-file (custom/org-file-path file)))))
 
 (provide 'init-org-files)

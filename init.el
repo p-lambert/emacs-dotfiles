@@ -24,7 +24,7 @@
 (require 'init-go)
 (require 'init-guide-key)
 (require 'init-haskell)
-(require 'init-helm)
+(require 'init-ivy)
 (require 'init-latex)
 (require 'init-markdown)
 (require 'init-multiple-cursors)

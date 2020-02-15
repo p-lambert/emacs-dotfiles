@@ -1,7 +1,6 @@
 (require 'magit)
 (require 'magit-gh-pulls)
 (require 'git-timemachine)
-(require 'helm)
 (require 's)
 
 (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)

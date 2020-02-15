@@ -12,22 +12,20 @@
     clojure-mode
     coffee-mode
     company
+    counsel
+    counsel-projectile
     dash
     dash-at-point
     elscreen
     expand-region
     f
+    flyspell-correct-ivy
     gist
     git-timemachine
     guide-key
     go-mode
     gotest
     haskell-mode
-    helm
-    helm-ag
-    helm-bundle-show
-    helm-flyspell
-    helm-projectile
     hlinum
     inf-ruby
     magit

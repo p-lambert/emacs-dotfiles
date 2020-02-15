@@ -1,7 +1,7 @@
 (require 'bind-key)
 
 (defvar custom/strong-bindings
-  '("M-n" "M-p" "M-o" "C-M-&" "C-x 4")
+  '("M-n" "M-p" "C-M-&" "C-x 4")
   "List of global keybindings to be ensured on every mode.")
 
 (defun custom/ensure-bindings-precedence (keys)
@@ -26,7 +26,6 @@
 (global-set-key (kbd "C-c j") 'custom/join-line)
 (global-set-key (kbd "C-c /") 'custom/toggle-line-comment)
 (global-set-key (kbd "C-y") 'custom/yank-and-indent)
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-M-f") 'forward-sexp)
 (global-set-key (kbd "C-M-b") 'backward-sexp)
 (global-set-key (kbd "s-g") 'goto-line)
@@ -44,7 +43,6 @@
 (global-set-key (kbd "C-x 3") 'custom/hsplit-last-buffer)
 (global-set-key (kbd "C-x 3") 'custom/hsplit-last-buffer)
 (global-set-key (kbd "C-x 4") 'custom/toggle-split)
-(global-set-key (kbd "C-x C-n") 'helm-bookmarks)
 (global-set-key (kbd "C-c -") 'custom/swap-buffers-in-windows)
 (global-set-key (kbd "C-x =") 'balance-windows)
 (global-set-key (kbd "C-l") 'previous-buffer)

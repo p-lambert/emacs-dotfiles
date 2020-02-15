@@ -1,18 +1,18 @@
 (require 'projectile)
-(require 'helm-projectile)
 
 (projectile-global-mode)
 
-(global-set-key (kbd "C-x f") 'helm-projectile)
+(global-set-key (kbd "C-x f") 'counsel-projectile-find-file)
+(global-set-key (kbd "C-x b") 'counsel-projectile-switch-to-buffer)
 (global-set-key (kbd "C-x C-d") 'projectile-dired)
 (global-set-key (kbd "C-c p p") 'projectile-switch-project)
-(global-set-key (kbd "C-c p d") 'helm-projectile-find-dir)
+(global-set-key (kbd "C-c p d") 'counsel-projectile-find-dir)
 (global-set-key (kbd "C-c p s") 'projectile-ag)
 
 (defvar custom/projectile-blacklist '(".gems" "log" "tmp" "vendor"))
 
 (setq
- projectile-completion-system 'helm
+ projectile-completion-system 'ivy
  projectile-switch-project-action 'custom/projectile-switch-action
  projectile-git-submodule-command nil)
 
@@ -31,9 +31,6 @@
                (projectile-dired)
                (delete-other-windows)))))
   (setq custom/disable-buffer-switch-advice nil))
-
-(setq helm-projectile-sources-list
-      '(helm-source-projectile-buffers-list helm-source-projectile-files-list))
 
 (dolist (ignored custom/projectile-blacklist)
         (add-to-list 'projectile-globally-ignored-directories ignored))
