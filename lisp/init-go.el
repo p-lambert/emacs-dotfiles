@@ -1,4 +1,5 @@
 (require 'go-mode)
+(require 'go-guru)
 (require 'gotest)
 (require 's)
 (require 'f)
@@ -111,8 +112,8 @@
 (defun custom/godef-jump (open-in-split-p)
   (interactive "P")
   (if open-in-split-p
-      (call-interactively 'godef-jump-other-window)
-    (call-interactively 'godef-jump)))
+      (call-interactively 'go-guru-definition-other-window)
+    (call-interactively 'go-guru-definition)))
 
 (advice-add 'go-test--get-program :around #'custom/go-test-wrapper)
 
