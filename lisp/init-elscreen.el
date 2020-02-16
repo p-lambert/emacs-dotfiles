@@ -67,7 +67,7 @@
 
 (add-hook 'popwin:before-popup-hook
           (lambda () (setq custom/disable-buffer-switch-advice 't)))
-(add-hook 'popwin:before-popup-hook
+(add-hook 'popwin:after-popup-hook
           (lambda () (setq custom/disable-buffer-switch-advice nil)))
 
 (provide 'init-elscreen)
