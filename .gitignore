@@ -17,6 +17,7 @@ var/
 bookmarks
 custom.el
 network-security.data
+recentf
 
 # Eshell
 eshell/
