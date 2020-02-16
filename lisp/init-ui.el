@@ -66,8 +66,11 @@
                (propertize "\u200b" 'display '((raise -0.15) (height 1.2)))
                "[" mode-line-modified "]"
                "  "
-               '(:eval (custom/elscreen-mode-line))
-               "  |  "
+
+               ;; Display the elscreen number
+               ;; '(:eval (custom/elscreen-mode-line))
+               ;; "  |  "
+
                (propertize "%b" 'face 'bold)
                "  |  "
                '(:eval (projectile-project-name))
