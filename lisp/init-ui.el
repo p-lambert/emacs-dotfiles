@@ -41,8 +41,12 @@
 (load-theme 'challenger-deep t)
 
 ;; fonts
-(set-default-font "Fira Mono 14")
-(set-frame-font "Fira Mono 14" t t)
+(defun custom/set-fonts ()
+  (set-default-font "Fira Mono 14")
+  (set-frame-font "Fira Mono 14" t t)
+  (set-face-attribute 'mode-line nil :font "Fira Mono 12")
+  (set-face-attribute 'mode-line-inactive nil :font "Fira Mono 12"))
+(custom/set-fonts)
 
 (setq default-frame-alist
       '(
@@ -63,7 +67,8 @@
 (setq-default mode-line-format
               (list
                ;; add padding to mode-line (hacky solution)
-               (propertize "\u200b" 'display '((raise -0.15) (height 1.2)))
+               (propertize "\u200b" 'display '((raise -0.40) (height 1.4)))
+               " "
                "[" mode-line-modified "]"
                "  "
 
@@ -89,6 +94,9 @@
 (defadvice load-theme (before smooth-theme-switching activate)
   (ad-set-arg 1 t)
   (mapcar #'disable-theme custom-enabled-themes))
+
+(defadvice load-theme (after override-fonts activate)
+  (custom/set-fonts))
 
 ;; fix file opening (OSX specific)
 (setq ns-pop-up-frames nil)
