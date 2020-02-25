@@ -14,6 +14,13 @@
 (defvar custom/go-src "/usr/local/go/src")
 (defvar custom/godoc-url "https://godoc.org")
 
+;; expose go definition cmd as a custom variable
+(defcustom custom/go-definition-cmd "godef-jump"
+  "Command to use when jumping to (Go) definition"
+  :type '(choice
+          (string :tag "godef-jump")
+          (string :tag "go-guru-definition")))
+
 (add-hook 'before-save-hook 'gofmt-before-save)
 
 (defun custom/go-run ()
@@ -111,9 +118,11 @@
 
 (defun custom/godef-jump (open-in-split-p)
   (interactive "P")
+  (let ((fn (intern custom/go-definition-cmd))
+        (fn-other-window (intern (concat custom/go-definition-cmd "-other-window"))))
   (if open-in-split-p
-      (call-interactively 'go-guru-definition-other-window)
-    (call-interactively 'go-guru-definition)))
+      (call-interactively fn-other-window)
+    (call-interactively fn))))
 
 (advice-add 'go-test--get-program :around #'custom/go-test-wrapper)
 

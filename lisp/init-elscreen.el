@@ -70,4 +70,11 @@
 (add-hook 'popwin:after-popup-hook
           (lambda () (setq custom/disable-buffer-switch-advice nil)))
 
+;; fix issue with counsel-set-variable
+(require 'counsel)
+(advice-add 'counsel-set-variable :around
+            (lambda (fn &rest args)
+              (let ((custom/disable-buffer-switch-advice 't))
+                (apply fn args))))
+
 (provide 'init-elscreen)
