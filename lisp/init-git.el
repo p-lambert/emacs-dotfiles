@@ -8,7 +8,7 @@
 (global-set-key (kbd "C-c g g") 'magit-status)
 (global-set-key (kbd "C-c g f") 'magit-log-buffer-file)
 (global-set-key (kbd "C-c g t") 'git-timemachine)
-(global-set-key (kbd "C-c g l") 'vc-annotate)
+(global-set-key (kbd "C-c g B") 'magit-blame)
 
 ;; disable magit startup message
 (setq magit-last-seen-setup-instructions "1.4.0")
