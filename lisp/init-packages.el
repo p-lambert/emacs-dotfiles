@@ -10,7 +10,6 @@
     bind-key
     cider
     clojure-mode
-    coffee-mode
     company
     counsel
     counsel-projectile
