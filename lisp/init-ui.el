@@ -16,9 +16,6 @@
  redisplay-dont-pause t
  )
 
-;; start in fullscreen
-(toggle-frame-fullscreen)
-
 ;; enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
 
