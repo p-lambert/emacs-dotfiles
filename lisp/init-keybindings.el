@@ -60,6 +60,8 @@
 (global-set-key (kbd "C-z") 'ignore)
 (global-set-key (kbd "C-x C-c") 'ignore)
 (global-set-key (kbd "C-c 0") 'quickrun)
+(global-set-key (kbd "s--") 'text-scale-decrease)
+(global-set-key (kbd "s-=") 'text-scale-increase)
 
 ;; elscreen
 (global-set-key (kbd "s-{") 'elscreen-previous)
