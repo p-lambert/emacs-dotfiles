@@ -65,4 +65,13 @@ Doesn't mess with special buffers."
      #'kill-buffer
      (delete (current-buffer) (seq-filter #'buffer-file-name (buffer-list))))))
 
+(defun custom/kill-current-buffer ()
+  "Kill the current buffer trying to replace it by another one from the same project"
+  (interactive)
+  (if (not (projectile-project-p))
+      (kill-current-buffer)
+    (let ((previous (current-buffer)))
+      (projectile-previous-project-buffer)
+      (kill-buffer previous))))
+
 (provide 'init-windows-defuns)
