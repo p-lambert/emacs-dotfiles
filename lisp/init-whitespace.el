@@ -10,6 +10,9 @@
 
 (setq whitespace-global-modes
       '(not magit-mode
+            magit-status-mode
+            magit-diff-mode
+            magit-revision-mode
             git-commit-mode
             dired-mode
             web-mode
