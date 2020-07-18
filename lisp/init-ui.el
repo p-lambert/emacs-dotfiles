@@ -35,21 +35,21 @@
 ;; theme
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes"))
 
-(load-theme 'doom-dracula t)
+(load-theme 'doom-wilmersdorf t)
 
 ;; fonts
 (defun custom/set-fonts ()
-  (set-default-font "Fira Mono 14")
-  (set-frame-font "Fira Mono 14" t t)
-  (set-face-attribute 'mode-line nil :font "Fira Mono 12")
-  (set-face-attribute 'mode-line-inactive nil :font "Fira Mono 12"))
+  (set-default-font "Fira Mono 15")
+  (set-frame-font "Fira Mono 15" t t)
+  (set-face-attribute 'mode-line nil :font "Fira Mono 13")
+  (set-face-attribute 'mode-line-inactive nil :font "Fira Mono 13"))
 (custom/set-fonts)
 
 (setq default-frame-alist
       '(
         (width . 155)
         (height . 40)
-        (font . "Fira Mono 14")
+        (font . "Fira Mono 15")
         (vertical-scroll-bars . nil)))
 
 ;; modeline
