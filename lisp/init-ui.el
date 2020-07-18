@@ -21,7 +21,6 @@
 
 ;; line numbers
 (require 'linum)
-(require 'hlinum)
 
 (defadvice linum-update-window (around linum-dynamic activate)
   (let* ((num-lines (count-lines (point-min) (point-max)))
@@ -30,7 +29,10 @@
     ad-do-it))
 
 (add-hook 'prog-mode-hook 'linum-mode)
-(hlinum-activate)
+
+;; Disable line number highlight for performance reasons
+;; (require 'hlinum)
+;; (hlinum-activate)
 
 ;; fonts
 (defun custom/set-fonts ()
