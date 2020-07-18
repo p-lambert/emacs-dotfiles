@@ -63,6 +63,8 @@
 (global-set-key (kbd "C-c 0") 'quickrun)
 (global-set-key (kbd "s--") 'text-scale-decrease)
 (global-set-key (kbd "s-=") 'text-scale-increase)
+(global-set-key (kbd "<f12>") 'custom/toggle-light-dark-theme)
+
 
 ;; elscreen
 (global-set-key (kbd "s-{") 'elscreen-previous)

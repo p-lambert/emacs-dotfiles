@@ -32,22 +32,16 @@
 (add-hook 'prog-mode-hook 'linum-mode)
 (hlinum-activate)
 
-;; theme
-(add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes"))
-
-(load-theme 'doom-wilmersdorf t)
-
 ;; fonts
 (defun custom/set-fonts ()
-  (set-default-font "Fira Mono 15")
-  (set-frame-font "Fira Mono 15" t t)
+  (set-frame-font "Fira Mono 15")
   (set-face-attribute 'mode-line nil :font "Fira Mono 13")
   (set-face-attribute 'mode-line-inactive nil :font "Fira Mono 13"))
 (custom/set-fonts)
 
 (setq default-frame-alist
       '(
-        (width . 155)
+        (width . 140)
         (height . 40)
         (font . "Fira Mono 15")
         (vertical-scroll-bars . nil)))
@@ -68,11 +62,6 @@
                " "
                "[" mode-line-modified "]"
                "  "
-
-               ;; Display the elscreen number
-               ;; '(:eval (custom/elscreen-mode-line))
-               ;; "  |  "
-
                (propertize "%b" 'face 'bold)
                "  |  "
                '(:eval (projectile-project-name))
@@ -85,17 +74,30 @@
                ))
 
 ;; default window size
-(when window-system (set-frame-size (selected-frame) 155 40))
+(when window-system (set-frame-size (selected-frame) 140 40))
+
+;; fix file opening (OSX specific)
+(setq ns-pop-up-frames nil)
+
+;; themes
+(add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes"))
+(setq custom/dark-theme 'doom-wilmersdorf)
+(setq custom/light-theme nil)
+
+;; load dark theme by default
+(load-theme custom/dark-theme t)
+
+(defun custom/toggle-light-dark-theme ()
+  (interactive)
+  (if (string= (frame-parameter nil 'background-mode) "dark")
+      (load-theme custom/light-theme 't)
+    (load-theme custom/dark-theme 't)))
 
 ;; fix theme switching
 (defadvice load-theme (before smooth-theme-switching activate)
   (ad-set-arg 1 t)
   (mapcar #'disable-theme custom-enabled-themes))
-
 (defadvice load-theme (after override-fonts activate)
   (custom/set-fonts))
-
-;; fix file opening (OSX specific)
-(setq ns-pop-up-frames nil)
 
 (provide 'init-ui)
