@@ -64,7 +64,7 @@
                "  "
                (propertize "%b" 'face 'bold)
                "  |  "
-               '(:eval (projectile-project-name))
+               'projectile--mode-line
                " "
                '(:eval (custom/branch-name))
                "  |  "

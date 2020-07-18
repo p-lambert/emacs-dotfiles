@@ -14,7 +14,8 @@
 (setq
  projectile-completion-system 'ivy
  projectile-switch-project-action 'custom/projectile-switch-action
- projectile-git-submodule-command nil)
+ projectile-git-submodule-command nil
+ projectile-mode-line-function 'projectile-project-name)
 
 (defun custom/projectile-switch-action ()
   (setq custom/disable-buffer-switch-advice 't)
