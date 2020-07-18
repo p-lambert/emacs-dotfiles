@@ -1,3 +1,6 @@
+;; force use of bash
+(setq shell-file-name "/bin/bash")
+
 (defun custom/import-env-var (name)
   (let* ((cmd (format ". ~/.bashrc; echo -n $%s" name))
          (var (shell-command-to-string cmd)))
