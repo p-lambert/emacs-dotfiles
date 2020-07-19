@@ -65,7 +65,7 @@ point is currently at."
                custom/git-branch-cache))
     (if (s-blank? branch)
         ""
-      (concat "@ " branch))))
+      (concat " @ " branch))))
 
 ;; force cache expiration when magit re-renders
 (add-hook 'magit-pre-refresh-hook 'custom/git-branch-cache-purge)

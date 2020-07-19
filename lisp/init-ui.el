@@ -59,7 +59,6 @@
                (propertize "%b" 'face 'bold)
                "  |  "
                'projectile--mode-line
-               " "
                '(:eval (custom/git-mode-line))
                "  |  "
                'mode-name
