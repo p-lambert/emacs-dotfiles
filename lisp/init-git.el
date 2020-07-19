@@ -37,11 +37,13 @@ point is currently at."
     (message (kill-new (url-recreate-url url)))))
 
 (defun custom/branch-name ()
-  (cond (vc-mode (substring vc-mode 5))
-        ((projectile-project-p)
-         (let* ((git-branch-cmd "/usr/bin/env git symbolic-ref --short HEAD")
-                (branch-name (shell-command-to-string git-branch-cmd)))
-           (s-chomp branch-name)))))
+  (cond ((projectile-project-p)
+         (let* ((git-branch-cmd "/usr/bin/env git branch --show-current")
+                (branch-name (s-chomp (shell-command-to-string git-branch-cmd))))
+           (if (s-blank? branch-name)
+               (substring (shell-command-to-string "/usr/bin/env git rev-parse HEAD") 0 7)
+             branch-name)))
+        (vc-mode (substring vc-mode 5))))
 
 (defun custom/git-branch-cache-purge ()
   (setq custom/git-branch-cache (make-hash-table :test 'eq)))
@@ -64,6 +66,9 @@ point is currently at."
     (if (s-blank? branch)
         ""
       (concat "@ " branch))))
+
+;; force cache expiration when magit re-renders
+(add-hook 'magit-pre-refresh-hook 'custom/git-branch-cache-purge)
 
 (global-set-key (kbd "C-c g m") 'custom/branch-changelog)
 (global-set-key (kbd "C-c g b") 'magit-checkout)
