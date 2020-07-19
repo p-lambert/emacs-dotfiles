@@ -1,5 +1,6 @@
 (require 'markdown-mode)
-(require 'livedown)
+
+;;(require 'livedown)
 
 ;; disable autoindent after pressing RET
 (setq markdown-indent-on-enter nil)
