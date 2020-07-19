@@ -48,14 +48,6 @@
         (font . "Fira Mono 15")
         (vertical-scroll-bars . nil)))
 
-;; modeline
-(defun custom/branch-name ()
-  ;; for powerline patched fonts, the unicode char \ue0a0 is cooler!
-  (cond (vc-mode (concat "@ " (substring vc-mode 5)))
-        ((projectile-project-p)
-         (let* ((git-branch-cmd "/usr/bin/env git symbolic-ref --short HEAD")
-                (branch-name (shell-command-to-string git-branch-cmd)))
-           (concat "@ " (s-chomp branch-name))))))
 
 (setq-default mode-line-format
               (list
@@ -68,7 +60,7 @@
                "  |  "
                'projectile--mode-line
                " "
-               '(:eval (custom/branch-name))
+               '(:eval (custom/git-mode-line))
                "  |  "
                'mode-name
                "  |  "

@@ -39,6 +39,35 @@ point is currently at."
                     "https" nil nil "github.com" nil urlpath urlattr nil t)))
     (message (kill-new (url-recreate-url url)))))
 
+(defun custom/branch-name ()
+  (cond (vc-mode (substring vc-mode 5))
+        ((projectile-project-p)
+         (let* ((git-branch-cmd "/usr/bin/env git symbolic-ref --short HEAD")
+                (branch-name (shell-command-to-string git-branch-cmd)))
+           (s-chomp branch-name)))))
+
+(defun custom/git-branch-cache-purge ()
+  (setq custom/git-branch-cache (make-hash-table :test 'eq)))
+(custom/git-branch-cache-purge)
+
+(defvar custom/git-branch-cache-ttl 10
+  "Amount of time in seconds that we should cache the branch name")
+
+(defun custom/git-mode-line ()
+  (let* ((now (current-time))
+         (key (current-buffer))
+         (cached (gethash key custom/git-branch-cache))
+         (expiry (car cached))
+         (branch (cdr cached)))
+    (unless (and cached (time-less-p now expiry))
+      (setq branch (custom/branch-name))
+      (puthash key
+               (cons (time-add now custom/git-branch-cache-ttl) branch)
+               custom/git-branch-cache))
+    (if (s-blank? branch)
+        ""
+      (concat "@ " branch))))
+
 (global-set-key (kbd "C-c g m") 'custom/branch-changelog)
 (global-set-key (kbd "C-c g b") 'magit-checkout)
 (global-set-key (kbd "C-c g l") 'custom/github-copy-shareable-url)
