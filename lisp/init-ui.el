@@ -77,9 +77,6 @@
 (setq custom/dark-theme 'doom-wilmersdorf)
 (setq custom/light-theme nil)
 
-;; load dark theme by default
-(load-theme custom/dark-theme t)
-
 (defun custom/toggle-light-dark-theme ()
   (interactive)
   (if (string= (frame-parameter nil 'background-mode) "dark")
@@ -92,5 +89,8 @@
   (mapcar #'disable-theme custom-enabled-themes))
 (defadvice load-theme (after override-fonts activate)
   (custom/set-fonts))
+
+;; load dark theme by default
+(load-theme custom/dark-theme t)
 
 (provide 'init-ui)
