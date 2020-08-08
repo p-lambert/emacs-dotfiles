@@ -30,12 +30,12 @@
     (quickrun)))
 
 (defun custom/go-test-wrapper (orig-fun &rest args)
-  (let ((pwd (f-relative default-directory (getenv "GOPATH")))
+  (let ((pwd (f-relative default-directory (projectile-project-root)))
         (go-test-cmd (apply orig-fun args)))
     ;; run test command in vagrant box, if needed
-    (if (and (boundp 'custom/vagrant-box) (boundp 'custom/vagrant-go-path))
+    (if (and (boundp 'custom/vagrant-box) (boundp 'custom/vagrant-project-path))
         (setq go-test-cmd (format "cd %s && vagrant ssh -c \"bash -c \\\"cd %s/%s; %s\\\"\""
-                                  custom/vagrant-box custom/vagrant-go-path pwd go-test-cmd)))
+                                  custom/vagrant-box custom/vagrant-project-path pwd go-test-cmd)))
     ;; add special test arguments, if needed
     (if (boundp 'custom/go-test-args)
         (setq go-test-cmd
