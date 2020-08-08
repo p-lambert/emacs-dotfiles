@@ -1,5 +1,5 @@
 (require 'go-mode)
-;;(require 'go-guru)
+(require 'go-guru)
 (require 'gotest)
 (require 's)
 (require 'f)
