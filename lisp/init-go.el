@@ -15,11 +15,12 @@
 (defvar custom/godoc-url "https://godoc.org")
 
 ;; expose go definition cmd as a custom variable
-(defcustom custom/go-definition-cmd "godef-jump"
+(defcustom custom/go-definition-cmd "lsp-find-definition"
   "Command to use when jumping to (Go) definition"
   :type '(choice
           (string :tag "godef-jump")
-          (string :tag "go-guru-definition")))
+          (string :tag "go-guru-definition")
+          (string :tag "lsp-find-definition")))
 
 (add-hook 'before-save-hook 'gofmt-before-save)
 
@@ -125,6 +126,13 @@
   (if open-in-split-p
       (call-interactively fn-other-window)
     (call-interactively fn))))
+
+(defun custom/lsp-find-definition-other-window ()
+  (interactive)
+  (lsp-find-definition :display-action 'window))
+(defalias 'lsp-find-definition-other-window #'custom/lsp-find-definition-other-window)
+
+(provide 'init-go)
 
 (advice-add 'go-test--get-program :around #'custom/go-test-wrapper)
 

@@ -25,6 +25,7 @@
 (require 'init-haskell)
 (require 'init-ivy)
 (require 'init-latex)
+(require 'init-lsp)
 (require 'init-markdown)
 (require 'init-multiple-cursors)
 (require 'init-mutant)
