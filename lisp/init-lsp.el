@@ -5,7 +5,7 @@
 (setq
  lsp-diagnostic-package :none
  lsp-eldoc-enable-hover nil
- lsp-enable-completion-at-point nil
+ lsp-enable-completion-at-point 't
  lsp-enable-enable-text-document-color nil
  lsp-enable-indentation nil
  lsp-enable-links nil
