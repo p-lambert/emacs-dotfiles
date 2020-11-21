@@ -12,7 +12,6 @@
     clojure-mode
     company
     counsel
-    counsel-projectile
     dash
     dash-at-point
     elscreen

@@ -2,11 +2,11 @@
 
 (projectile-global-mode)
 
-(global-set-key (kbd "C-x f") 'counsel-projectile-find-file)
-(global-set-key (kbd "C-x b") 'counsel-projectile-switch-to-buffer)
+(global-set-key (kbd "C-x f") 'projectile-find-file)
+(global-set-key (kbd "C-x b") 'projectile-switch-to-buffer)
 (global-set-key (kbd "C-x C-d") 'projectile-dired)
 (global-set-key (kbd "C-c p p") 'projectile-switch-project)
-(global-set-key (kbd "C-c p d") 'counsel-projectile-find-dir)
+(global-set-key (kbd "C-c p d") 'projectile-find-dir)
 (global-set-key (kbd "C-c p s") 'projectile-ag)
 
 (defvar custom/projectile-blacklist '(".gems" "log" "tmp" "vendor"))

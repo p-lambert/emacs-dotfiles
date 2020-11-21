@@ -2,7 +2,6 @@
 (require 'counsel)
 (require 'swiper)
 (require 'projectile)
-(require 'counsel-projectile)
 
 (ivy-mode 1)
 (remove-hook 'ivy-mode-hook #'ivy-rich-mode)
