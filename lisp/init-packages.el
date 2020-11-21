@@ -33,7 +33,6 @@
     mutant
     org
     org-bullets
-    perspective
     projectile
     quickrun
     rainbow-delimiters
