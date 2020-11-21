@@ -1,6 +1,6 @@
 (require 'lsp-mode)
 
-(add-hook 'go-mode-hook #'lsp)
+;; (add-hook 'go-mode-hook #'lsp)
 
 (setq
  lsp-diagnostic-package :none
