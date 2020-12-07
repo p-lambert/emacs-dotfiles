@@ -16,6 +16,7 @@
             git-commit-mode
             dired-mode
             web-mode
+            vterm-mode
             org-mode
             markdown-mode))
 

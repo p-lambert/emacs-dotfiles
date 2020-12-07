@@ -36,6 +36,7 @@
 (require 'init-ruby)
 (require 'init-scheme)
 (require 'init-spell)
+(require 'init-vterm)
 (require 'init-web)
 (require 'init-whitespace)
 (require 'init-yas)

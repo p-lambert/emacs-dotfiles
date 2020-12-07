@@ -44,6 +44,7 @@
     smart-forward
     toggle-quotes
     visual-fill-column
+    vterm
     web-mode
     yaml-mode
     yasnippet
