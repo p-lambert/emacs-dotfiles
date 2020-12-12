@@ -1,7 +1,9 @@
 (require 'ivy)
+(require 'ivy-hydra)
 (require 'counsel)
 (require 'swiper)
 (require 'projectile)
+(require 'f)
 
 (ivy-mode 1)
 (remove-hook 'ivy-mode-hook #'ivy-rich-mode)
@@ -40,5 +42,12 @@
 
 (define-key ivy-minibuffer-map (kbd "C-c o") 'custom/ivy-open-other-window)
 (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-call)
+
+(defun custom/ivy-action-projectile-other-window (filename)
+  (find-file-other-window (f-join (projectile-project-root) filename)))
+
+(ivy-set-actions
+ 'projectile-find-file
+ '(("o" custom/ivy-action-projectile-other-window "other window")))
 
 (provide 'init-ivy)
