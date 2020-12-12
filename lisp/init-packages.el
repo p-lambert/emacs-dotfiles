@@ -20,6 +20,7 @@
     flyspell-correct-ivy
     gist
     git-timemachine
+    git-link
     guide-key
     go-mode
     gotest
