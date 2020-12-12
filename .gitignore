@@ -15,10 +15,12 @@ projectile.cache
 auto-save-list/
 transient/
 var/
+games/
 bookmarks
 custom.el
 network-security.data
 recentf
+.lsp-session*
 
 # Eshell
 eshell/
