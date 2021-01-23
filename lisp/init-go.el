@@ -15,7 +15,7 @@
 (defvar custom/godoc-url "https://godoc.org")
 
 ;; expose go definition cmd as a custom variable
-(defcustom custom/go-definition-cmd "lsp-find-definition"
+(defcustom custom/go-definition-cmd "godef-jump"
   "Command to use when jumping to (Go) definition"
   :type '(choice
           (string :tag "godef-jump")
@@ -33,9 +33,13 @@
 (defun custom/go-test-wrapper (orig-fun &rest args)
   (let ((pwd (f-relative default-directory (projectile-project-root)))
         (go-test-cmd (apply orig-fun args)))
-    ;; run test command in vagrant box, if needed
+    (message (format "go-test-cmd: %s" go-test-cmd))
+    ;; run test command in vagrant box, if needed. the reason why we begin the test
+    ;; command with "true &&" is to avoid the behavior of the compilation mode
+    ;; that transforms the directory argument from "cd %d" into the
+    ;; default-directory buffer variable, which messes up with source code links
     (if (and (boundp 'custom/vagrant-box) (boundp 'custom/vagrant-project-path))
-        (setq go-test-cmd (format "cd %s && vagrant ssh -c \"bash -c \\\"cd %s/%s; %s\\\"\""
+        (setq go-test-cmd (format "true && cd %s && vagrant ssh -c \"bash -c \\\"cd %s/%s; %s\\\"\""
                                   custom/vagrant-box custom/vagrant-project-path pwd go-test-cmd)))
     ;; add special test arguments, if needed
     (if (boundp 'custom/go-test-args)
