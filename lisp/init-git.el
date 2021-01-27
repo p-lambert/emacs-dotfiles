@@ -52,11 +52,30 @@
         ""
       (concat " @ " branch))))
 
+(defvar custom/gitlab-url "https://gitlab.ddbuild.io/DataDog/")
+(defun custom/open-in-gitlab ()
+  (interactive)
+  (browse-url (format "%s/%s/-/pipelines?page=1&scope=all&ref=%s"
+                      custom/gitlab-url
+                      (projectile-project-name)
+                      (custom/branch-name))))
+
+(defun custom/run-gitlab-pipeline ()
+  (interactive)
+  (let ((app-name (read-string "enter app name: ")))
+    (browse-url (format "%s/%s/pipelines/new?ref=%s&var[SKIP_CHECKS]=true&var[APPS]=%s"
+                      custom/gitlab-url
+                      (projectile-project-name)
+                      (custom/branch-name)
+                      app-name))))
+
 ;; force cache expiration when magit re-renders
 (add-hook 'magit-pre-refresh-hook 'custom/git-branch-cache-purge)
 
 (global-set-key (kbd "C-c g m") 'custom/branch-changelog)
 (global-set-key (kbd "C-c g b") 'magit-checkout)
 (global-set-key (kbd "C-c g l") 'git-link)
+(global-set-key (kbd "C-c g L") 'custom/open-in-gitlab)
+(global-set-key (kbd "C-c g p") 'custom/run-gitlab-pipeline)
 
 (provide 'init-git)
